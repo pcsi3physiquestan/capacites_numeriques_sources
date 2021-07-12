@@ -12,6 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
+La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 # Etude d'un mouvement à force centrale
 __But :__ obtenir des trajectoires d’un point matériel soumis à un champ de force centrale conservatif
@@ -82,6 +83,7 @@ avec :
 
 ### Conditions initiales
 Les conditions initiales ne sont pas directement $\theta, r, \dot r$ mais :
+
 $$
 \begin{pmatrix}
 b \\
@@ -89,6 +91,7 @@ r(t=0) = r_i \\
 Ec(t=0) = E_{c0}
 \end{pmatrix}
 $$
+
 avec $v_0$ suivant $-\vec e_x$.
 
 __Il faudra donc déterminer $\theta, r, \dot r$ à partir de ces contraintes avant de commencer l'intégration.__
