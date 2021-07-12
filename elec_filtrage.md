@@ -183,8 +183,8 @@ _Pour toute la suite, on travaillera avec un filtre d'ordre $n_{min}$._
 __Attention, il y a plus de 10000 fréquences pour reconstruire le signal. Cela peut prendre un peu de temps. Pensez à sauvegarder votre travail avant d'exécuter la cellule.__ Un compteur affiche l'avancé de la reconstruction du signal temporel lors de l'utilisation de la fonction `evalue_temp`.
 
 ```{code-cell} ipython3
-s_gauche=np.array([0])
-s_droite=np.array([0])
+s_gauche=np.array([1])
+s_droite=np.array([1])
 ```
 
 ### Création du fichier sonore
@@ -196,8 +196,8 @@ Vous pourrez le comparer à l'[extrait original](https://github.com/pcsi3physiqu
 # On doit normaliser le signal pour que les valeurs soit comprises entre -1 et 1
 # En pratique, on place les valeurs entre -0.5 et 0.5 pour éviter tout risque de saturation
 reponse2 = []
-reponse2.append(s_gauche / np.max(s_gauche)) * 0.5
-reponse2.append(s_droite / np.max(s_droite)) * 0.5
+reponse2.append(s_gauche / np.max(s_gauche) * 0.5)
+reponse2.append(s_droite / np.max(s_droite) * 0.5)
 reponse2 = np.array(reponse2)  # La fonction write impose l'utilisation d'un array
 
 
