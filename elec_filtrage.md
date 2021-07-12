@@ -184,7 +184,7 @@ __Attention, il y a plus de 10000 fréquences pour reconstruire le signal. Cela 
 
 ```{code-cell} ipython3
 s_gauche=np.array([0])
-s_droite=np.Array([0])
+s_droite=np.array([0])
 ```
 
 ### Création du fichier sonore
@@ -197,7 +197,7 @@ Vous pourrez le comparer à l'[extrait original](https://github.com/pcsi3physiqu
 # En pratique, on place les valeurs entre -0.5 et 0.5 pour éviter tout risque de saturation
 reponse2 = []
 reponse2.append(s_gauche / np.max(s_gauche)) * 0.5
-reponse2.append(s_droite / np.max(s_droite) * 0.5
+reponse2.append(s_droite / np.max(s_droite)) * 0.5
 reponse2 = np.array(reponse2)  # La fonction write impose l'utilisation d'un array
 
 
