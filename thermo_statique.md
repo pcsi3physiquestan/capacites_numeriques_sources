@@ -79,6 +79,7 @@ $$
 $$
 
 avec 
+
 $$
 \begin{cases}
 T(z = 0) &= T_{sol} \\
@@ -88,6 +89,7 @@ $$
 
 ### Schéma d'Euler explicite
 On utilise un schéma d'Euler explicite pour le vecteur :
+
 $$Y(z) = \begin{cases}T(z) \\ P(z) \end{cases}$$
 
 Pour un pas d'intégration $h$ et une suite de valeurs $Y_k$ aux altitudes $z_k$, on utilisera la relation de récurrence :

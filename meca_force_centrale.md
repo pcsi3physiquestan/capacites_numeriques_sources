@@ -189,7 +189,8 @@ où
 * $J$ est le nombre de particules émis par unité de surface.
 * $d\Omega = 2\pi \sin D dD$
 
-On se propose de réaliser une simulation (de Monte-Carlo) pour vérifier l'expression théorique de la __section efficace différentielle_ :
+On se propose de réaliser une simulation (de Monte-Carlo) pour vérifier l'expression théorique de la __section efficace différentielle__ :
+
 $$
 {dn \over Jd\Omega}
 $$
@@ -200,6 +201,7 @@ Le principe est :
 3. On détermine alors la statistique des angles de diffusion et on calcule la section efficace différentielle en fonction de $D$.
 
 On réalisera $N = 10000$ tirages et on prendra 100 `bins` pour la statistique des angles des fréquences statistiques. De plus, on calcule $J$ par :
+
 $$
 J = N / (\pi  bmax^2)
 $$

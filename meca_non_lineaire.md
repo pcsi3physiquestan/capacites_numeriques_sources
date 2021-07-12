@@ -45,7 +45,7 @@ $C = 2.2 \times 10^{-1} (UA); \alpha = 0.40; n = 12; \epsilon_0 = 3.45 \times 10
 > Vous devez :
 > 1. Ecrire une fonction `Ep` qui prend comme argument une distance `r` et qui renvoie l'énergie potentielle associée. _Il est conseillé d'enregistrer les variables C, alpha... comme des variables globales._
 > 2. Ecrire une fonction `force` qui prend comme argument une valeur `x` et `pas` et qui renvoie la valeur de la force : $F = - \frac{dE_p}{dr}$ estimée en `x` par dérivation numérique en utilisant le pas `pas`.
-> 3. Tracer $E_p(r)$^et $F(r)$ pour $r$ entre 1 et 10 Angstrom.
+> 3. Tracer $E_p(r)$ et $F(r)$ pour $r$ entre 1 et 10 Angstrom.
 > 3. Déterminer, par une recherche de 0 par dichotomie, la distance `rE` correspondant à la position d'équilibre de la molécule avec une tolérance de $10^{-4} \mathring{A}$.
 
 __Utiliser la notation scientifique 4e-4 pour entrer la valeur numérique $4\times 10^{-4}$.__
@@ -125,8 +125,8 @@ Pensez à réutiliser les fonctions déjà définies.
 
 ### Effets de non linéarité
 Le but est d'observer les vibrations de la molécule autour de sa position d'équilibre pour :
-* une vibration de très faible amplitude : $(r - r_E) < 0.01 r_E$
-* une vibration plus importante : $(r - r_E) < 0.2 r_E$
+* une vibration de très faible amplitude : $(r - r_E) = 0.01 r_E$
+* une vibration plus importante : $(r - r_E) = 0.2 r_E$
 
 On cherchera à observer par les tracés temporelles et le portrait de phase si l'approximation linéaire de l'équation pourrait être valable et quelle sont les effets de non linéarité.
 

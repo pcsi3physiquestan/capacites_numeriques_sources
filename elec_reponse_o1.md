@@ -130,6 +130,7 @@ y(t + h) &= y(t) + h \frac{\rm{d}y}{\rm{dt}}(t)
 $$
 
 soit par soustraction :
+
 $$
 \frac{\rm{d}y}{\rm{dt}}(t) = \frac{y(t+h) - y(t-h)}{2h}
 $$
