@@ -152,7 +152,7 @@ avec $T_0$ la période propre aux petites oscillations
 > __Exercice 4 :__
 > 1. Pour une liste d'amplitude angulaire entre 0 et $\pi$ (non inclus) (5 valeurs), vous devez :
 >     * Procéder à l'intégration numérique de l'évolution de l'angle _sans approximation_ pour l'amplitude considérée et la solution analytique aux petits angles
->     * Tracer sur deux graphiques : l'évolution temporelle de $\theta(t)$ et le portrait de phase du pendule our l'amplitude considérée.
+>     * Tracer sur deux graphiques : l'évolution temporelle de $\theta(t)$ et le portrait de phase $(\theta(t), \frac{\rm{d}\theta}{\rm{dt}}(t))$ du pendule our l'amplitude considérée.
 >     * Comparer à chaque fois la solution aux petits angles et la solution numérique trouvée.
 > 2. Ecrire une fonction `periode_borda` qui renvoie pour une amplitude `theta0` donnée la période approchée par la formule de Borda
 > 2. Pour une liste d'amplitude angulaire entre $\pi / 50$ et $\pi$ (non inclus) (49 valeurs), vous devez déterminer pour chaque amplitude la période des oscillations pour le signal obtenu numériquement $T_{num}(\theta_0)$ et par la formule de Borda $T_{Borda}(\theta_0)$ puis représenter les deux périodes en fonction de l'amplitude.
