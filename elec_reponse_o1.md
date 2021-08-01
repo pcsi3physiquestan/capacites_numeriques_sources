@@ -193,7 +193,7 @@ On prendra $R = 1\rm{k\Omega}; C = 1\rm{\mu F}; T0 = k \times \tau; u(t=0) = 0 \
 > 3. Représenter quatre graphiques dans une même fenêtre (2 lignes, 2 colonnes) représentant :
 >     * premier graphique : les tensions $E(t)$ et $u(t)$
 >     * deuxième graphique : l'intensité $i(t)$
->     * troisième graphique ; le portrait de phase $u(t); u'(t)$
+>     * troisième graphique ; le portrait de phase (ensemble des points de coordonnées ($u(t); \frac{du}{dt}(t)$))
 >     * quatrième graphique ; l'évolution de l'énergie stockée dans le condensateur, celle délivrée par la source et celle dissipée par la résistance
 > 4. Analyser physiquement les courbes obtenues.
 > 5. Reprendre l'étude en augmentant $k$. On commentera notamment l'énergie dissipée par effet Joule.
