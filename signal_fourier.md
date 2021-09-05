@@ -26,6 +26,7 @@ Dans cette séance, vous allez apprendre à :
 
 ## Position du problème
 
+(theoriques)=
 ### Eléments théoriques
 On rappelle que le __spectre__ d'un signal est sa décomposition en somme de sinusoïdes où l'on donne : la _fréquence_ ($f_i$), l'_amplitude_ $(A_i)$ et la _phase à l'origine_ ($\phi_i$) de chaque sinusoïde de la décomposition :
 
@@ -81,7 +82,7 @@ $$
 
 > __Exercice 1__  
 > Dans la cellule de code suivante, vous devez :
-> 1. Ecrire une fonction `fonc_temp` qui prend 4 arguments : 1 flottant `t` et 3 vecteurs numpy `fs`, `amps`, `phis` (liste des fréquences amplitudes et phases à l'origine du spectre) et qui renvoie la valeur de $s$ définie dans les Eléments théoriques (plus haut) évaluée à l'instant `t`.
+> 1. Ecrire une fonction `fonc_temp` qui prend 4 arguments : 1 flottant `t` et 3 vecteurs numpy `fs`, `amps`, `phis` (liste des fréquences amplitudes et phases à l'origine du spectre) et qui renvoie la valeur de $s$ définie dans les [Eléments théoriques](theoriques) évaluée à l'instant `t`.
 > 2. Ecrire une fonction `evalue_temp` qui prend comme arguments : 3 vecteurs numpy `fs`, `amps`, `phis`, 2 flottants `t1`, `t2` et un entier `N` et qui renvoie deux vecteurs numpy:
 >    1. un vecteur contenant `N` valeurs de temps $t_k$ régulièrement réparties entre `t1` et `t2`
 >    2. un vecteur contenant les valeurs $s_k$ qui sont les évaluatinos de $s$ (définie dans les Eléments théoriques) aux instants $t_k$
