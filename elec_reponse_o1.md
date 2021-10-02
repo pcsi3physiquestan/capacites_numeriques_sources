@@ -123,29 +123,29 @@ On va réaliser une dérivée numérique centrée. Pour un pas de temps $h$. On 
 
 $$
 \begin{cases}
-y(t - h) &= y(t) - h \frac{\rm{d}y}{\rm{dt}}(t)\\
-y(t + h) &= y(t) + h \frac{\rm{d}y}{\rm{dt}}(t)
+y(t - h) &\approx y(t) - h \frac{\rm{d}y}{\rm{dt}}(t)\\
+y(t + h) &\approx y(t) + h \frac{\rm{d}y}{\rm{dt}}(t)
 \end{cases}
 $$
 
 soit par soustraction :
 
 $$
-\frac{\rm{d}y}{\rm{dt}}(t) = \frac{y(t+h) - y(t-h)}{2h}
+\frac{\rm{d}y}{\rm{dt}}(t) \approx \frac{y(t+h) - y(t-h)}{2h}
 $$
 
-soit pour la suite des $y_k$ (on note la suite des valeurs de la dérivée $i_k$):
+soit pour la suite des $y_k$ (on note la suite des valeurs de la dérivée $dy_k$):
 
 $$
-i_k = \frac{\rm{d}y}{\rm{dt}}(t_k) = \frac{y_{k+1} - y_{k-1}}{2h}
+dy_k = \frac{\rm{d}y}{\rm{dt}}(t_k) = \frac{y_{k+1} - y_{k-1}}{2h}
 $$
 
 Seul problème : __on ne peut utiliser cette expression pour calculer la dérivée pour $k=0$ et $k=k_{\max}$__. Pour les deux valeurs extrêmes, on va utiliser l'expression :
 
 $$
 \begin{cases}
-i_0 &= \frac{y_{1} - y_{0}}{h} \textrm{ Dérivation à droite}\\
-i_{k_{\max}} &= \frac{y_{k_{\max}} - y_{k_{\max} - 1}}{h} \textrm{ Dérivation à gauche}\\
+dy_0 &= \frac{y_{1} - y_{0}}{h} \textrm{ Dérivation à droite}\\
+dy_{k_{\max}} &= \frac{y_{k_{\max}} - y_{k_{\max} - 1}}{h} \textrm{ Dérivation à gauche}\\
 \end{cases}
 $$
 
@@ -184,7 +184,11 @@ t / T0 & \textrm{si 0 < t <= T0}\\
 \end{cases}
 $$
 
-On prendra $R = 1\rm{k\Omega}; C = 1\rm{\mu F}; T0 = k \times \tau; u(t=0) = 0 \rm{V}$
+On prendra $R = 1\rm{k\Omega}; C = 1\rm{\mu F}; T0 = k \times \tau; u(t=0) = 0 \rm{V}$.
+
+_Rappels :_
+* L'__énergie__ stockée dans un condensateur est $E_{el} = \frac{1}{2}C u_c^2$
+* La __puissance__ dissipée par effet Joule est $P_J(t) = R i^2(t)$
 
 > __Exercice 6__
 > 1. Procéder à l'intégration de l'équation différentielle pour $k=2$ en choisissant un pas de calcul adapté.
