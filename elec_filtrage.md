@@ -167,7 +167,7 @@ _Indications utiles :_
 _Pour toute la suite, on travaillera avec un filtre d'ordre $n_{min}$._
 
 > __Exercice 3:__  
-> 1. Ecrire un script qui, partant d'une fréquence de coupure $f_c = f_1$ détermine la fréquence de coupure minimale telle que $G(f_1) > 0.9$. Vérifier alors que $G(f_2) < 0.1$.
+> 1. Ecrire un script qui, par dichotomie entre deux valeurs de fréquence $f_1$ et $f_2$ détermine la fréquence de coupure telle que $G(f_1) = 0.9$. Vérifier alors que $G(f_2) < 0.1$. On s'autorise un écart de $10^{-1} Hz$ sur la fréquence.
 > 2. Tracer le diagramme de Bode en gain du filtre pour $f_c$ trouvée précédemment et vérifier visuellement son ordre et que les gains en $f_1$ et $f_2$ suivent le cahier des charges.
 
 ```{code-cell} ipython3
