@@ -62,7 +62,7 @@ et pensez à commenter votre code.
 On rappelle le principe, on utilise deux fonctions inconnues :
 
 $$
-\begin{pmatrix}
+Y = \begin{pmatrix}
 x(t)\\
 v(t)
 \end{pmatrix}
@@ -71,6 +71,8 @@ $$
 On a alors la relation :
 
 $$
+{\rm{d} \over \rm{dt}} Y
+=
 {\rm{d} \over \rm{dt}}
 \begin{pmatrix}
 x(t)\\
@@ -79,13 +81,14 @@ v(t)
 =
 \begin{pmatrix}
 v(t)\\
-{\sum F_{ext}(t, x, v) \over m} = f(t, x, v)
+{\sum F_{ext}(t, Y) \over m} = f(t, Y)
 \end{pmatrix}
 $$
 
 On peut alors implémenter le schéma d'Euler explicite sur le vecteur précédent :
 
 $$
+Y_{k+1} =
 \begin{pmatrix}
 x_{k+1}\\
 v_{k+1}
@@ -93,7 +96,7 @@ v_{k+1}
 =
 \begin{pmatrix}
 x_{k} + h \times v_k\\
-v_k + h \times f(t, x, v)
+v_k + h \times f(t, Y)
 \end{pmatrix}
 $$
 
@@ -102,18 +105,17 @@ où $h$ est le pas d'intégration.
 +++
 
 > __Exercice 2__:
-> 1. Préciser l'expression de $f(t, x, v)$ pour notre système et définir une fonction `f_hcl(t, x, v)` qui renvoie cette expression.
+> 1. Préciser l'expression de $f(t, Y)$ pour notre système et définir une fonction `f_hcl(t, Y)` qui renvoie cette expression.
 > 2. Définir une fonction `euler` qui prend pour argument : 
 >    * `f` : la fonction du schéma d'Euler
 >    * `h` : le pas d'intégration choisi
->    * `x0` et `v0` : les conditions initiales sur la position et la vitesse au temps initial $t=0$
+>    * `Y0` : les conditions initiales sur la position et la vitesse au temps initial $t=0$
 >    * `tf` : le temps final pour l'intégration.
 >  
 >    et qui renvoie trois vecteurs :  
 >    * `tk` les temps où on calcule les positions vitesses
->    * `xk` les positions $x(t_k)$
->    * `vk` les vitesses $v(t_k)$
-> 3. Vous pouvez tester votre fonction sur une chute libre ($f(t, x, v) = g = 10$) avec un faible nombre de points.
+>    * `Yk` le vecteur contenant les positions $x(t_k)$ et les vitesses $v(t_k)$
+> 3. Vous pouvez tester votre fonction sur une chute libre ($f(t, Y) = g = 10$) avec un faible nombre de points.
 
 ```{code-cell} ipython3
 """

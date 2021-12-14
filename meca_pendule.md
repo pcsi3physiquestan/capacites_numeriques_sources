@@ -86,7 +86,7 @@ Cette fois, on va directement raisonner avec le __vecteur $Y_k$__ et non avec de
 
 >  __Exercice 1 :__  
 > Vous devez :
-> 1. Ecrire une fonction `F_petit` qui prend comme argument un flottant `t` et un vecteur `Y` à deux éléments et qui renvoie le vecteur `F(t, Y)` dans le cas d'un pendule aux petites oscillations.
+> 1. Ecrire une fonction `F_petit` qui prend comme argument un flottant `t` et un vecteur `Y` à deux éléments et qui renvoie le vecteur `F(Y, t)` dans le cas d'un pendule aux petites oscillations.
 > 2. Ecrire une fonction `euler` qui prend comme arguments :
 >     * une fonction `F` (semblable à `F_petit` qui prendra le même type d'arguments et renverra le même type de vecteur).
 >     * un vecteur `Y0` donnant les __deux__ conditions initiales (ici à $t=0$) sur les deux composants de `Y`
