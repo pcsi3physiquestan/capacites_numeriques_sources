@@ -36,16 +36,16 @@ On suppose la particules alpha initialement à une distance $r_i$ __suffisamment
 
 ### Considération sur les unités
 Comme dans le cas de l'étude de la vibration moléculaire, on va se placer dans un système d'unités évitant des puissances de 10 trop grandes. On va donc travailler avec comme unité de référence :
-* la charge élémentaire devient $e = 1(UA)$
-* la masse atomique devient $m = 1(UA)$
-* la distance $r = 10^{-14} m$ (taille typique du noyau) devient $r = 1 (UA)$
-* l'énergie $E = 1.6 \times 10^{-19} J$ (1eV) devient $E = 1(UA)$
+* la charge élémentaire devient $e = 1 \rm{q_a}$
+* la masse atomique $m = 1.7 \times 10^{-27} \rm{kg}$ devient $m = 1 \rm{m_a}$
+* la distance $r = 1.0 \times 10^{-14} \rm{m}$ (taille typique du noyau) devient $r = 1  \rm{r_a}$
+* l'énergie $E = 1.6 \times 10^{-19} \rm{J}$ (1eV) devient $E = 1 \rm{E_a}$
 
 Dans ces conditions, les données numériques utiles deviennent :
-* Masse des particules alpha : $m = 4 (UA)$
-* Energie cinétique initiale $E_{c0} = 5.3 \times 10^6 (UA)$ (cette valeur sera susceptible de changer ensuite).
-* Constante ${e^2 \over 4 \pi \epsilon_0} = 1.44 \times 10^6 (UA)$
-* un pas de temps de $h = 1(UA)$ correspondra à $7.9 \times 10^{-20} s$
+* Masse des particules alpha : $m = 4 \rm{m_a}$
+* Energie cinétique initiale $E_{c0} = 5.3 \times 10^6 \rm{E_a}$ (cette valeur sera susceptible de changer ensuite).
+* Constante ${e^2 \over 4 \pi \epsilon_0} = 1.4 \times 10^4 \rm{E_a.r_a} $
+* un pas de temps de $h = 1 t_a$ correspondra à $1.0 \times 10^{-18} \rm{s}$
 
 ### Mise en équation
 Il s'agit d'un problème classique de force centrale coulombienne, la conservation du moment cinétique et le principe fondamental de la dynamique permettent de se ramener à un problème à trois inconnues :
