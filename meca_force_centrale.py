@@ -14,6 +14,8 @@
 #     name: python3
 # ---
 
+# La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
+#
 # # Etude d'un mouvement à force centrale
 # __But :__ obtenir des trajectoires d’un point matériel soumis à un champ de force centrale conservatif
 #
@@ -36,16 +38,16 @@
 #
 # ### Considération sur les unités
 # Comme dans le cas de l'étude de la vibration moléculaire, on va se placer dans un système d'unités évitant des puissances de 10 trop grandes. On va donc travailler avec comme unité de référence :
-# * la charge élémentaire devient $e = 1(UA)$
-# * la masse atomique devient $m = 1(UA)$
-# * la distance $r = 10^{-14} m$ (taille typique du noyau) devient $r = 1 (UA)$
-# * l'énergie $E = 1.6 \times 10^{-19} J$ (1eV) devient $E = 1(UA)$
+# * la charge élémentaire devient $e = 1 \rm{q_a}$
+# * la masse atomique $m = 1.7 \times 10^{-27} \rm{kg}$ devient $m = 1 \rm{m_a}$
+# * la distance $r = 1.0 \times 10^{-14} \rm{m}$ (taille typique du noyau) devient $r = 1  \rm{r_a}$
+# * l'énergie $E = 1.6 \times 10^{-19} \rm{J}$ (1eV) devient $E = 1 \rm{E_a}$
 #
 # Dans ces conditions, les données numériques utiles deviennent :
-# * Masse des particules alpha : $m = 4 (UA)$
-# * Energie cinétique initiale $E_{c0} = 5.3 \times 10^6 (UA)$ (cette valeur sera susceptible de changer ensuite).
-# * Constante ${e^2 \over 4 \pi \epsilon_0} = 1.44 \times 10^6 (UA)$
-# * un pas de temps de $h = 1(UA)$ correspondra à $7.9 \times 10^{-20} s$
+# * Masse des particules alpha : $m = 4 \rm{m_a}$
+# * Energie cinétique initiale $E_{c0} = 5.3 \times 10^6 \rm{E_a}$ (cette valeur sera susceptible de changer ensuite).
+# * Constante ${e^2 \over 4 \pi \epsilon_0} = 1.4 \times 10^4 \rm{E_a.r_a} $
+# * un pas de temps de $h = 1 t_a$ correspondra à $1.0 \times 10^{-18} \rm{s}$
 #
 # ### Mise en équation
 # Il s'agit d'un problème classique de force centrale coulombienne, la conservation du moment cinétique et le principe fondamental de la dynamique permettent de se ramener à un problème à trois inconnues :
@@ -83,6 +85,7 @@
 #
 # ### Conditions initiales
 # Les conditions initiales ne sont pas directement $\theta, r, \dot r$ mais :
+#
 # $$
 # \begin{pmatrix}
 # b \\
@@ -90,6 +93,7 @@
 # Ec(t=0) = E_{c0}
 # \end{pmatrix}
 # $$
+#
 # avec $v_0$ suivant $-\vec e_x$.
 #
 # __Il faudra donc déterminer $\theta, r, \dot r$ à partir de ces contraintes avant de commencer l'intégration.__
@@ -133,7 +137,7 @@ from scipy.integrate import odeint
 # >     * créer un vecteur `temps` contenant les instants où on veut estimer les coordonnées polaires.
 # >     * utiliser la fonction `odeint` pour réaliser l'intégration numérique
 # >     * renvoyer le veceur `temps` et le tableau du résultat de l'intégration
-# > 4. Ecrire une fonction `polçto_cart(r, theta)` qui prend comme arguments deux vecteurs `r` et `theta` correspondant à des coordonnées polaires et qui renvoie les vecteurs de coordonnées `x` et `y` cartésiennes associées.
+# > 4. Ecrire une fonction `pol_to_cart(r, theta)` qui prend comme arguments deux vecteurs `r` et `theta` correspondant à des coordonnées polaires et qui renvoie les vecteurs de coordonnées `x` et `y` cartésiennes associées.
 # > 5. Pour la valeur d'énergie cinétique donnée dans l'énoncé, déterminer puis tracer la trajectoire pour des paramètres d'impacts $b$ allant de 0.01 (inclus) à 1000 (inclus, 16 valeurs, on utilisera `logspace` pour répartir les valeurs sur une échelle logarithmique) et commenter l'allure des trajectoires et l'angle de déviation observé. _On choisira N = 10000 points._ Est-ce qu'on attend ?
 #
 # _Indications utiles :_  
@@ -175,7 +179,8 @@ from scipy.integrate import odeint
 # * $J$ est le nombre de particules émis par unité de surface.
 # * $d\Omega = 2\pi \sin D dD$
 #
-# On se propose de réaliser une simulation (de Monte-Carlo) pour vérifier l'expression théorique de la __section efficace différentielle_ :
+# On se propose de réaliser une simulation (de Monte-Carlo) pour vérifier l'expression théorique de la __section efficace différentielle__ :
+#
 # $$
 # {dn \over Jd\Omega}
 # $$
@@ -186,6 +191,7 @@ from scipy.integrate import odeint
 # 3. On détermine alors la statistique des angles de diffusion et on calcule la section efficace différentielle en fonction de $D$.
 #
 # On réalisera $N = 10000$ tirages et on prendra 100 `bins` pour la statistique des angles des fréquences statistiques. De plus, on calcule $J$ par :
+#
 # $$
 # J = N / (\pi  bmax^2)
 # $$

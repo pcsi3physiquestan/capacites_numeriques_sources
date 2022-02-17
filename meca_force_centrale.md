@@ -12,6 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
+
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 # Etude d'un mouvement à force centrale
@@ -44,8 +45,8 @@ Comme dans le cas de l'étude de la vibration moléculaire, on va se placer dans
 Dans ces conditions, les données numériques utiles deviennent :
 * Masse des particules alpha : $m = 4 \rm{m_a}$
 * Energie cinétique initiale $E_{c0} = 5.3 \times 10^6 \rm{E_a}$ (cette valeur sera susceptible de changer ensuite).
-* Constante ${e^2 \over 4 \pi \epsilon_0} = 1.4 \times 10^4 \rm{E_a.r_a} $
-* un pas de temps de $h = 1 t_a$ correspondra à $1.0 \times 10^{-18} \rm{s}$
+* Constante ${e^2 \over 4 \pi \epsilon_0} = 1.4 \times 10^5 \rm{E_a.r_a} $
+* un pas de temps de $h = 1 t_a$ correspondra à $1.0 \times 10^{-20} \rm{s}$
 
 ### Mise en équation
 Il s'agit d'un problème classique de force centrale coulombienne, la conservation du moment cinétique et le principe fondamental de la dynamique permettent de se ramener à un problème à trois inconnues :
@@ -141,7 +142,7 @@ __Vous ne connaîtrez donc pas à l'avance la taille des ensembles de points `tk
 >     * créer un vecteur `temps` contenant les instants où on veut estimer les coordonnées polaires.
 >     * utiliser la fonction `odeint` pour réaliser l'intégration numérique
 >     * renvoyer le veceur `temps` et le tableau du résultat de l'intégration
-> 4. Ecrire une fonction `polçto_cart(r, theta)` qui prend comme arguments deux vecteurs `r` et `theta` correspondant à des coordonnées polaires et qui renvoie les vecteurs de coordonnées `x` et `y` cartésiennes associées.
+> 4. Ecrire une fonction `pol_to_cart(r, theta)` qui prend comme arguments deux vecteurs `r` et `theta` correspondant à des coordonnées polaires et qui renvoie les vecteurs de coordonnées `x` et `y` cartésiennes associées.
 > 5. Pour la valeur d'énergie cinétique donnée dans l'énoncé, déterminer puis tracer la trajectoire pour des paramètres d'impacts $b$ allant de 0.01 (inclus) à 1000 (inclus, 16 valeurs, on utilisera `logspace` pour répartir les valeurs sur une échelle logarithmique) et commenter l'allure des trajectoires et l'angle de déviation observé. _On choisira N = 10000 points._ Est-ce qu'on attend ?
 
 _Indications utiles :_  
