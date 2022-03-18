@@ -43,7 +43,7 @@ On se propose de mettre en place les représentations précédentes dans des cas
 
 > __Exercice B__  
 > _Les modules importés précédemment restent importés tant que vous êtes sur ce notebook. Inutile de les réimporter. De plus, les variables créées précédemment sont toujours en mémoire._
-> Ecrire une suite d'instruction traçant l'allure de $s(t)$. On rappelle qu'il faut:
+> Ecrire une suite d'instruction traçant l'allure de $s(t)$. On [rappelle](https://pcsi3physiquestan.github.io/intro_python/notebook/plt_presentation.html#un-exemple-basique) qu'il faut:
 > 1. Créer la fenêtre graphique et les axes.
 > 2. Légender les axes ($s$ et $t$) et titrer le graphique (ici "Signal sinusoïdal")
 > 3. Tracer la courbe (inutile de la légender car il n'y en a qu'une).
@@ -93,7 +93,7 @@ On se propose de mettre en place les représentations précédentes dans des cas
 ### Tracé des spectres.
 Pour tracer les spectres, on va utiliser la fonction `bar(x, y, width,...)` de la bibliothèque `matplotlib.pyplot`. Elle fonctionne comme plot (même options comme `label`) mais trace des barres au lieu de points. L'argument `width` défini la largeur des barres, on prendra `0.05`.
 > __Exercice F__  
-> 1. Utiliser la fonction `bar` pour tracer les spectres de $s_2(t)$ et $s_c(t)$ à partir des listes `fs` et `amps` (ou `fsc` et `ampsc`).
+> 1. Utiliser la fonction `bar` pour tracer les spectres de $s_2(t)$ et $s_c(t)$ à partir des listes `fs` et `amps` (ou `fsc` et `ampsc`). N'oubliez pas d'annoter/légender le graphique.
 
 ```{code-cell}
 :tags: [hide-input, remove-output]
@@ -105,7 +105,7 @@ On s'intéresse maintenant au cas où la décomposition spectrale n'est pas donn
 On suppose qu'on dispose de `N` mesures d'un signal $e$ faites avec une fréquence d'échantillonnage `fe`. Ces valeurs sont stockées dans un vecteur numpy `ek`. On veut obtenir la transformée de Fourier du signal $s$ basée sur les mesures `ek`.
 
 Nous allons utiliser la fonction native `fft` de la bibliothèque `numpy.fft`.
-* `fft(sk)` permet de calculer la TF à partir de `ek` pour une liste de valeurs de fréquences discrètes $f_i$. La fonction renvoie les amplitudes __sous forme d'un vecteur de grandeurs complexes__ :
+* `fft(sk)` permet de calculer le spectre à partir de `ek` pour une liste de valeurs de fréquences discrètes $f_i$. La fonction renvoie les amplitudes __sous forme d'un vecteur de grandeurs complexes__ :
     * Le module est l'amplitude de la composante spectrale
     * son argument est la phase à l'origine du signal.
 
@@ -119,7 +119,7 @@ $$
 > 1. (Théorie): On suppose qu'on a échantillonner le signal $e(t)$ avec une fréquence $f_e = 1 kHz$ pendant $t_f = 10 s$. Quel est l'intervalle de temps $t_e$ entre deux mesures? Quel est le nombre de points mesures $N$ ?
 > 2. Dans la cellule suivante, créer un vecteur `tk` correspondant aux instants $t_k$ de mesures puis un vecteur `ek` correspondant aux valeurs $e(t_k)$. Réfléchir aux choix de la fonction à utiliser (`arange` ou `linspace`) aux vues des données.
 > 3. Dans la même cellule, créer un vecteur `fi` contenant les fréquences auxquelles le spectre va être évalués (on rappelle qu'il aura la même taille que `ek`).
-> 4. Dans la même cellule, écrire une suite d'instructions (3 instructions) qui utilise la fonction `fft` de `numpy` pour obtenir un vecteur contenant les amplitudes de la décomposition de $e(t)$ et un vecteur contenant les phases à l'origine de la décomposition de $e(t)$ à partir du vecteur `ek`. _Les fonctions `np.abs` et `np.angle` renvoient respectivement les modules et arguments d'un vecteur de complexes (sous forme de vecteur)._
+> 4. Dans la même cellule, écrire une suite d'instructions (3 instructions) qui utilise la fonction `fft` de `numpy` pour obtenir un vecteur contenant les amplitudes de la décomposition de $e(t)$ et un vecteur contenant les phases à l'origine de la décomposition de $e(t)$ à partir du vecteur `ek`. _Les fonctions `np.abs` et `np.angle` renvoient respectivement les modules et arguments de chaque éléments d'un vecteur de complexes (sous forme de vecteur)._
 > 5. Tracer dans deux graphiques différents l'allure temporelle de $e(t)$ et le spectre obtenu par les instructions précédentes.
 
 
