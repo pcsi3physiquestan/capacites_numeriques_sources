@@ -34,7 +34,7 @@ On se propose de mettre en place les représentations précédentes dans des cas
 >     * Affiche la taille du vecteur `sk`
 > * Pensez à exécutez la cellule une fois écrite.
 > * On se rappellera qu'il y a deux façons de créer une suite de valeurs dans un vecteur `numpy`. Réfléchir à la plus adéquat.
-> * Pensez à utiliser les fonctions `sin, cos, tan, exp...` de la bibliothèque `numpy` car ces fonctions sont [vectorialisables](https://pcsi3physiquestan.github.io/intro_python/notebook/np_vecteurs.html#operations-sur-les-vecteurs-numpy)
+> * Pensez à utiliser les fonctions `sin, cos, tan, exp...` de la bibliothèque `numpy` car ces fonctions sont [vectorialisables](https://pcsi3physiquestan.github.io/intro_python/notebook/np_vecteurs.html#fonctions-mathematiques-usuelles)
 
 ```{code-cell}
 :tags: [hide-input, remove-output]
