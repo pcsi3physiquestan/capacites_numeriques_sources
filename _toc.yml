@@ -8,6 +8,9 @@ chapters:
   - file: signal_fourier_base.md
   - file: signal_fourier_complet.md
 - file: elec_reponse_o1.md
+  sections:
+  - file: elec_reponse_o1_base.md
+  - file: elec_reponse_o1_complet.md
 - file: elec_filtrage.md
 - file: meca_non_lineaire.md
 - file: meca_pendule.md
