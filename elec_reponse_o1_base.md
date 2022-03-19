@@ -24,7 +24,7 @@ __Attention : Même si $f$ ne dépend pas explicitement du temps, on gardera $t$
 > __Exercice A__  
 > Dans la cellule ci-après, vous devez:
 > 1. Importer les deux bibliothèques `numpy` et `matplotlib.pyplot`
-> 2. Créer deux fonction `f_libre` et `f_echelon` prenant deux arguments `t` et `u` (correspondant à un instant $t_k$ et à $u_k = u(u_k)$) et qui renvoie la valeur $f(t_k, u_k)$ pour chaque cas (régime libre et échelon de tension) (u est la tension aux bornes du condensateur comme dans l'étude présentée dans l'[exemple](exemple_rc)). _Vous pouvez définir $R,C$ et $\tau$ comme des variables globales que vous utilisez dans les fonctions._
+> 2. Créer deux fonction `f_libre` et `f_echelon` prenant deux arguments `t` et `u` (correspondant à un instant $t_k$ et à $u_k = u(u_k)$) et qui renvoie la valeur $f(t_k, u_k)$ pour chaque cas (régime libre et échelon de tension) (u est la tension aux bornes du condensateur comme dans l'étude présentée dans l'[exemple](pospb)). _Vous pouvez définir $R,C$ et $\tau$ comme des variables globales que vous utilisez dans les fonctions._
 
 ## Implémentation du schéma d'Euler
 ### Cas du régime libre

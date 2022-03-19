@@ -20,6 +20,7 @@ __But :__ mettre en œuvre la méthode d’Euler à l’aide d’un langage de p
 
 La _méthode d'Euler_ est une méthode numérique d'intégration d'une équation différentielle.
 
+(pospb)=
 ### Position du problème.
 Un équation différentielle d'ordre 1 peut se mettre sous la forme :
 
@@ -31,7 +32,7 @@ avec $y(t_0) = y_0$
 où $y$ est la fonction inconnue.
 
 
-> {ref}`exemple_rc`Exemple : Pour un circuit RC série relié à une tension de tension $E(t)$, l'équation d'évolution est :
+> Exemple : Pour un circuit RC série relié à une tension de tension $E(t)$, l'équation d'évolution est :
 > 
 > $$\frac{\rm{d}u}{\rm{dt}} = \frac{1}{RC}\left (E(t) - u(t) \right )$$
 > 
