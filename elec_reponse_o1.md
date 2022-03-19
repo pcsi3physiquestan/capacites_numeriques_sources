@@ -30,8 +30,8 @@ avec $y(t_0) = y_0$
 
 où $y$ est la fonction inconnue.
 
-(exemple_rc)=
-> Exemple : Pour un circuit RC série relié à une tension de tension $E(t)$, l'équation d'évolution est :
+
+> {ref}`exemple_rc`Exemple : Pour un circuit RC série relié à une tension de tension $E(t)$, l'équation d'évolution est :
 > 
 > $$\frac{\rm{d}u}{\rm{dt}} = \frac{1}{RC}\left (E(t) - u(t) \right )$$
 > 
