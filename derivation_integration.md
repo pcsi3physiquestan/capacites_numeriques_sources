@@ -62,7 +62,7 @@ f.suptitle("Dérivée à gauche")
 ax.plot(y, x, linewidth=1.3, color=blue)
 ax.plot(yg, xg, linewidth=1, color=red)
 ax.set_xticks(xg)
-ax.set_xtickslabels(=)["x0-h", "x0"])
+ax.set_xtickslabels(["x0-h", "x0"])
 glue("deriv_g", f, display="False")
 
 f, ax = plt.subplots()
