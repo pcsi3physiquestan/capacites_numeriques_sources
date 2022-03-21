@@ -84,6 +84,7 @@ On traite le cas général d'un système d'ordre 1 stable de constante de temps 
 
 On étudiera l'influence du pas d'intégration sur la fiabilité de l'intégration numérique.
 
+(miseq)=
 ### Mise en équation
 > __Etude théorique__
 > On travaille avec un circuit $RC$ série dont la constante de temps est $\tau = RC$. On prendra $R = 10\rm{k\Omega}$ et $C = 100 \rm{\mu F}$.  
