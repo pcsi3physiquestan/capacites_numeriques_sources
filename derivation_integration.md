@@ -37,9 +37,9 @@ import matplotlib.pyplot as plt
 from myst_nb import glue
 
 x = np.linspace(0, np.pi / 2, 1000)
-y = np.sin(x) - x ** 3
+y = np.sin(x) - x ** 3 / 3
 
-Kd = 1.1
+Kd = 1.2
 Kg = 2 - Kd
 xd = np.array([np.pi / 4, np.pi / 4 * Kd])
 yd = np.sin(xd) - xd ** 3
@@ -51,24 +51,24 @@ yc = np.sin(xc) - xc ** 3
 
 f, ax = plt.subplots()
 f.suptitle("Dérivée à droite")
-ax.plot(y, x, linewidth=1.3, color="blue")
-ax.plot(yd, xd, linewidth=1, color="red")
+ax.plot(x, y, linewidth=1.3, color="blue")
+ax.plot(xd, yd, linewidth=1, color="red")
 ax.set_xticks(xd)
 ax.set_xticklabels(["x0", "x0+h"])
 glue("deriv_d", f, display="False")
 
 f, ax = plt.subplots()
 f.suptitle("Dérivée à gauche")
-ax.plot(y, x, linewidth=1.3, color="blue")
-ax.plot(yg, xg, linewidth=1, color="red")
+ax.plot(x, y linewidth=1.3, color="blue")
+ax.plot(xg, yg, linewidth=1, color="red")
 ax.set_xticks(xg)
 ax.set_xticklabels(["x0-h", "x0"])
 glue("deriv_g", f, display="False")
 
 f, ax = plt.subplots()
 f.suptitle("Dérivée centrée")
-ax.plot(y, x, linewidth=1.3, color="blue")
-ax.plot(yc, xc, linewidth=1, color="red")
+ax.plot(x, y, linewidth=1.3, color="blue")
+ax.plot(xc,yc, linewidth=1, color="red")
 ax.set_xticks(xc2)
 ax.set_xticklabels(["x0-h", "x0", "x0+h"])
 glue("deriv_c", f, display="False")
