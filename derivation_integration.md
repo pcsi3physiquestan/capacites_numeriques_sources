@@ -140,7 +140,7 @@ _Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors êt
 >
 > $$I = \int_a^b f(x) dx = \lim_{N \to \infty} \sum_{i=0}^{N-1} f(x_i) \times h$$
 >
-> avec $x_i = a + \frac{b-a}{N}i$ et $h = \frac{b-a}{N}
+> avec $x_i = a + \frac{b-a}{N}i$ et $h = \frac{b-a}{N}$
 
 ```{sidebar} Relation de récurrence
 
