@@ -63,6 +63,17 @@ $$
 
 ### Synthèse
 
+````{sidebar} Comparaison avec l'intégration numérique
+Le relation de récurrence est identique au cas d'intégration numérique vu [précédemment](inter_pcp). L'intégration numérique est en effet un cas particulier d'intégration d'une équation différentielle où $f(t,y)$... ne dépend pas de $y$ !.
+
+On peut d'ailleurs mathématiquement voir la méthode de résolution comme le calcul de l'intégrale:
+
+$$
+y(t) = \int_{t_0}^{t_k} f(t, y(t)) dt
+$$
+
+L'intégration numérique donne effectivement la relation de récurrence vue [dans la partie sur l'intégration numérique](inter_pcp).
+````
 Pour résoudre numériquement une équation différentielle d'ordre 1 par la méthode d'Euler avec un pas de temps $h$, on va donc:
 * définir une fonction $f(t,y)$ qui est une expression de la dérivée obtenue par l'équation différentielle:
 
@@ -71,9 +82,6 @@ $$
 $$
 * créer un vecteur temps contenant les instants $t_k = t_0 + k \times h$
 * calculer un vecteur contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
-````{sidebar} Comparaison avec l'intégration numérique
-Le relation de récurrence est identique au cas d'intégration numérique vu [précédemment](inter_pcp). L'intégration numérique est en effet un cas particulier d'intégration d'une équation différentielle où $f(t,y)$... ne dépend pas de $y$ !.
-````
 $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$
