@@ -167,7 +167,7 @@ On distingue quatre types d'intégration:
 ````{tabbed} Méthode des rectangles à droite
 On commence à $a$ et on s'arrête à $b - h$.
 
-```{figure} ./images/rectangle_gauche.pngx
+```{figure} ./images/rectangle_gauche.png
 :name: rectangle_droite
 :align: center
 ```
