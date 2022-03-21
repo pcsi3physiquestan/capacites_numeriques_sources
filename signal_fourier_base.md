@@ -38,7 +38,7 @@ On se propose de mettre en place les représentations précédentes dans des cas
 
 ```{code-cell}
 :tags: [hide-input, remove-output]
-
+a = 1
 ```
 
 > __Exercice B__  
