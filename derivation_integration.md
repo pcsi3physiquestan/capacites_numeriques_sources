@@ -41,11 +41,11 @@ y = np.sin(x) - x ** 3
 
 Kd = 1.1
 Kg = 2 - Kd
-xd = [np.pi / 4, np.pi / 4 * Kd]
+xd = np.array([np.pi / 4, np.pi / 4 * Kd])
 yd = np.sin(xd) - xd ** 3
-xg = [np.pi / 4 * Kg, np.pi / 4]
+xg = np.array([np.pi / 4 * Kg, np.pi / 4])
 yg = np.sin(xg) - xg ** 3
-xc = [np.pi / 4 * Kg, np.pi / 4 * Kd]
+xc = np.array([np.pi / 4 * Kg, np.pi / 4 * Kd])
 xc2 = [np.pi / 4 * Kg, np.pi / 4, np.pi / 4 * Kd]
 yc = np.sin(xc) - xc ** 3
 
