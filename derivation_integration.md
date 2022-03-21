@@ -27,8 +27,8 @@ L'idée de la dérivation numérique est d'approcher le nombre de dérivée $f'(
 
 $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0)}{h}$$
 
-### Type de calcul
-On distingue trois façon de calcul un nombre dérivé:
+### Types de calcul
+On distingue trois façons de calcul un nombre dérivé:
 
 ```{code-cell}
 :tags: [remove-input, remove-output]
@@ -122,3 +122,8 @@ $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - h)}{2h}$$
 _Note : La dérivée centrée est en général plus précise._
 ```
 ````
+
+### Cas étudiés et pas d'intégration
+En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une estimation du nombre dérivée pour plus valeur $x_i \in [a,b]$ avec un pas $h$. On distingue deux cas:
+* La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de la dérivée. On peut alors choisir les $x_i$ et choisir le pas d'intégration comme on veut.
+* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$. ```{margin} C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple``` On ne peut alors calculer
