@@ -42,12 +42,12 @@ y = np.sin(x) - x ** 3 / 3
 Kd = 1.2
 Kg = 2 - Kd
 xd = np.array([np.pi / 4, np.pi / 4 * Kd])
-yd = np.sin(xd) - xd ** 3
+yd = np.sin(xd) - xd ** 3 / 3
 xg = np.array([np.pi / 4 * Kg, np.pi / 4])
-yg = np.sin(xg) - xg ** 3
+yg = np.sin(xg) - xg ** 3 / 3
 xc = np.array([np.pi / 4 * Kg, np.pi / 4 * Kd])
 xc2 = [np.pi / 4 * Kg, np.pi / 4, np.pi / 4 * Kd]
-yc = np.sin(xc) - xc ** 3
+yc = np.sin(xc) - xc ** 3 / 3
 
 f, ax = plt.subplots()
 f.suptitle("Dérivée à droite")
