@@ -129,8 +129,8 @@ En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une
 
 * La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$. On ne peut alors calculer la dérivée de $f$ qu'aux points $x_k$ et le pas d'intégration est nécessairement $h = x_{k+1} - x_k$ (_à adapter pour la dérivée à gauche et centrée_).
 
-```{sidebar} 
+```{sidebar} Cas des valeurs discrètes
 C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple.
 
-_Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors être calculé que par
+_Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors être calculé que par dérivation à droite et le nombre dérivée en $x_N$ (dernier échantillon) ne peut être calculé que par dérivation à gauche. Pour les autres, on a le choix._
 ```
