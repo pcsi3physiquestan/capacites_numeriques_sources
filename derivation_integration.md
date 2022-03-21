@@ -51,8 +51,8 @@ yc = np.sin(xc) - xc ** 3
 
 f, ax = plt.subplots()
 f.suptitle("Dérivée à droite")
-ax.plot(y, x, linewidth=1.3, color=blue)
-ax.plot(yd, xd, linewidth=1, color=red)
+ax.plot(y, x, linewidth=1.3, color="blue")
+ax.plot(yd, xd, linewidth=1, color="red")
 ax.set_xticks(xd, label=["x0", "x0+h"])
 glue("deriv_d", f, display="False")
 
