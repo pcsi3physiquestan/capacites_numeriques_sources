@@ -71,7 +71,9 @@ $$
 $$
 * créer un vecteur temps contenant les instants $t_k = t_0 + k \times h$
 * calculer un vecteur contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
-
+````{sidebar} Comparaison avec l'intégration numérique
+Le relation de récurrence est identique au cas d'intégration numérique vu [précédemment](inter_pcp). L'intégration numérique est en effet un cas particulier d'intégration d'une équation différentielle où $f(t,y)$... ne dépend pas de $y$ !.
+````
 $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$

@@ -135,6 +135,7 @@ _Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors êt
 
 
 ## Intégration numérique
+(inter_pcp)=
 ### Principe
 > Rappel : L'intégrale d'une fonction $f$ sur l'intervalle $[a; b]$ est définie par:
 >
