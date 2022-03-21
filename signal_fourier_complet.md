@@ -29,6 +29,7 @@ _Quelques indications utiles :_
 * _Pour le tracé des spectres_ : La fonction `bar(x, y, width, ...)` de `matplotlib.pyplot` fonctionne comme `plot` (mêmes options) mais trace des barres au lieu de points. L'argument `width` défini la largeur des barres, on prendra `0.05`
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """Quelques indications :
 - N'oubliez d'importer les bibliothèques scientifiques
 - Pensez à utiliser les fonctions précédentes au lieu de tout réécrire.
@@ -73,13 +74,10 @@ _Données utiles_ :
 * Plusieurs fonctions ont déjà été créés pour les dernières questions, ce n'est pas la peine de les réécrire.
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """On importe pour vous la fonction fft"""
 from numpy.fft import fft  # Avec cette méthode d'importation, vous pouver utiliser directement la syntaxe fft(...)
 
 
-
-```
-
-```{code-cell} ipython3
 
 ```

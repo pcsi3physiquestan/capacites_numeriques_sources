@@ -38,7 +38,7 @@ On se propose de mettre en place les représentations précédentes dans des cas
 
 ```{code-cell}
 :tags: [hide-input, remove-output]
-a = 1
+
 ```
 
 > __Exercice B__  
@@ -124,6 +124,7 @@ $$
 
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """On importe pour vous la fonction fft"""
 from numpy.fft import fft  # Avec cette méthode d'importation, vous pouver utiliser directement la syntaxe fft(...)
 

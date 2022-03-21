@@ -30,6 +30,7 @@ La page ci-présente existe en version notebook téléchargeable grâce au bouto
 >         * le second contient les valeurs estimées de $y(t_k)$ ($y_k$).
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """Ne pas oublier d'importer les bibliothèques scientifiques"""
 ```
 
@@ -43,6 +44,7 @@ __On prendra $\tau = 1$.__ Il s'agit de vérifier que la fonction précédente f
 > 4. Tracer sur le même graphique la réponse numérique et la réponse analytique pour un régime libre puis pour un échelon de tension.
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """La fonction euler que vous avez défini précédemment est accessibles"""
 ```
 
@@ -59,6 +61,7 @@ _Informations utiles_:
 * Vous pouvez tout à fait créer un tracé (`ax[0].plot(...)`) à l'intérieur d'une boucle pour superposer plusieurs courbes.
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 
 ```
 
@@ -103,7 +106,7 @@ $$
 > 2. Vérifier son fonctionnement en calculant la dérivée des tensions pour les régimes libre et échelon de tension en traçant leur comparaison avec leurs expressions analytiques.
 
 ```{code-cell} ipython3
-
+:tags: [hide-input, remove-output]
 ```
 
 ### Intégration numérique.
@@ -118,7 +121,7 @@ $$
 > 2. Vérifier son fonctionnement en calculant l'intégrale des tensions pour les régimes libre et échelon de tension en traçant leur comparaison avec leurs expressions analytiques.
 
 ```{code-cell} ipython3
-
+:tags: [hide-input, remove-output]
 ```
 
 ### Application à la rampe.
@@ -156,5 +159,5 @@ _Pour étudier le rendement sur plusieurs décades entre $k=0.01$ et $k=1000$. D
 * `ax.set_xscale('log')` permet de représenter les abscisses suivant une échelle logarithmique.
 
 ```{code-cell} ipython3
-
+:tags: [hide-input, remove-output]
 ```

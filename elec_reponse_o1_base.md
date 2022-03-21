@@ -27,6 +27,7 @@ __Attention : Même si $f$ ne dépend pas explicitement du temps, on gardera $t$
 > 2. Créer deux fonction `f_libre` et `f_echelon` prenant deux arguments `t` et `u` (correspondant à un instant $t_k$ et à $u_k = u(u_k)$) et qui renvoie la valeur $f(t_k, u_k)$ pour chaque cas (régime libre et échelon de tension) (u est la tension aux bornes du condensateur comme dans l'étude présentée dans l'[exemple](pospb)). _Vous pouvez définir $R,C$ et $\tau$ comme des variables globales que vous utilisez dans les fonctions._
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 """Ne pas oublier d'importer les bibliothèques scientifiques et d'éxécuter la cellule."""
 ```
 
@@ -42,6 +43,7 @@ L'implémentation suivante est à bien comprendre et à savoir refaire sans guid
 >     * (Terminaison) Pour une utilisation plus simples ensuite des listes de valeurs `tkf` et `ukf`. Transformer les deux listes en deux vecteurs `numpy`.
 
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 # On rappelle que la fonction f_libre est accessible et que les bibliothèques scientifiques ont été créés.
 ```
 
@@ -54,11 +56,14 @@ L'implémentation suivante est à bien comprendre et à savoir refaire sans guid
 > 2. Tracer $y(t)$ pour chaque intégration (for et while). Tracer sur le même graphique la solution analytique pour comparaison (utilisez les $t_k$ comme abscisses). __N'oubliez pas de légender la figure.__
 
 On rappelle que la solution analytique est:
+
 $$
 y(t) = y_0 \exp^{- t / \tau}
 $$
 _Note : Certaines étapes pourraient être raffinées (création du vecteur temps par exemple)._
+
 ```{code-cell} ipython3
+:tags: [hide-input, remove-output]
 # On rappelle que la fonction f_libre est accessible et que les bibliothèques scientifiques ont été créés.
 ```
 
@@ -67,14 +72,25 @@ _Note : Certaines étapes pourraient être raffinées (création du vecteur temp
 > 1. Reprendre la suite d'instructions précédente (avec for ou while peu importe) pour $h = \tau / 10$; $h = \tau / 2$; $h = \tau$; $h = 2 * \tau$. Réaliser le tracé $y(t)$ pour chaque cas ainsi que la comparaison avec la solution analytique.
 > 2. En déduire comment choisir correctement le pas d'intégration.
 
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+```
+
+
 ### Cas de la réponse à un échelon de tension.
 > __Exercice E__ :
 > 1. Reprendre la suite d'instructions précédente (avec for ou while peu importe) avec un pas d'intégration correctement et obtenir la solution numérique pour un échelon de tension ($E = 1V$ et $y_0 = 0V$). Le comparer à la solution analytique.
 
 On rappelle que la solution analytique est:
+
 $$
 y(t) = E(1 -  \exp^{- t / \tau})
 $$
+
+```{code-cell} ipython3
+:tags: [hide-input, remove-output]
+```
+
 
 La nécessité de copier-coller le même code pour chaque test montre qu'il serait bien plus efficace de mettre ces instructions dans une fonction qu'on réutiliserait plusieurs fois. C'est l'objectif de la première partie de l'étude complète avant de l'utiliser pour la réponse à une entrée plus complexe : une rampe de tension.
 
