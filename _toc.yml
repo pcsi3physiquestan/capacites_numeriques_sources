@@ -10,7 +10,6 @@ chapters:
 - file: derivation_integration.md
   sections:
   - file: derivation_base.md
-  - file: integration_base.md
   - file: derive_integ_fonction.md
 - file: elec_reponse_o1.md
   sections:

@@ -206,11 +206,11 @@ $$
 
 ### Cas étudiés et pas de calcul
 Comme pour la dérivation, on distingue deux cas:
-* La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de la dérivée. On peut alors choisir les $x_i$ et choisir le pas d'intégration comme on veut.
+* La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de l'intégrale. On peut alors choisir les $x_i$ et choisir le pas d'intégration comme on veut (ou choisir N).
 ```{margin} Cas discret
 
 Il est possible que le pas $h = x_{i+1} - x_i$ varie dans le cas de mesures. Ce n'est pas un problème.
 ```
-* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$ (k entier dans $[0;N-1]$). Le pas $h$ est alors imposée par les $x_{i+1} - x_i$.
+* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$ (k entier dans $[0;N-1]$). Le pas $h$ est alors imposée par les $x_{i+1} - x_i$. On peut néanmoins toujours la méthode d'intégration.
 
 __Dans les deux cas, la méthode par récurrence est conseillée. D'autant qu'elle permet de calculer l'intégrale sur plusieurs intervalles $[x_0, x_k]$ ($k \in [0, N-1]$). La suite $I_k$ ainsi obtenue donc une primitive (qui s'annule en $x_0$) de la fonction $f$ sur l'intervalle étudiée.__
