@@ -126,4 +126,11 @@ _Note : La dérivée centrée est en général plus précise._
 ### Cas étudiés et pas d'intégration
 En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une estimation du nombre dérivée pour plus valeur $x_i \in [a,b]$ avec un pas $h$. On distingue deux cas:
 * La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de la dérivée. On peut alors choisir les $x_i$ et choisir le pas d'intégration comme on veut.
-* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$. ```{margin} C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple``` On ne peut alors calculer
+
+* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$. On ne peut alors calculer la dérivée de $f$ qu'aux points $x_k$ et le pas d'intégration est nécessairement $h = x_{k+1} - x_k$ (_à adapter pour la dérivée à gauche et centrée_).
+
+```{sidebar} 
+C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple.
+
+_Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors être calculé que par
+```
