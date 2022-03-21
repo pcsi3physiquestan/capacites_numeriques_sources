@@ -7,6 +7,11 @@ chapters:
   sections:
   - file: signal_fourier_base.md
   - file: signal_fourier_complet.md
+- file: derivation_integration.md
+  sections:
+  - file: derivation_base.md
+  - file: integration_base.md
+  - file: derive_integ_fonction.md
 - file: elec_reponse_o1.md
   sections:
   - file: elec_reponse_o1_base.md
