@@ -103,7 +103,7 @@ Si votre navigateur ouvre le fichier au lieu de le télécharger, faites un clic
 
 * Pour l'import, on rappelle la commande permettant de séparer les colonne en plusieurs variables:
 
-```temps, ucb = np.loadtxt('chemin_vers_fichier', skiprows=7, delimiter=";", unpack=True)```
+```temps, ucb = np.loadtxt('chemin_vers_fichier', skiprows=nlignes_a_sauter, delimiter="delimiteur de colonne", unpack=True)```
 
 * Pour les méthodes numériques, on ne peut choisir ici le pas d'intégration car on ne connaît que des valeurs discrètes.
     * Dérivation numérique: le pas est imposé par les écarts entre les $t_k$. De plus, comme précisé précédemment, vous devez utiliser une dérivée à droite en $t_0$ et une dérivée à gauche en $t_{final}$. Pour les instants intermédiaires, il est __demandé d'utiliser une dérivée centrée.__

@@ -65,11 +65,13 @@ $$
 
 Pour résoudre numériquement une équation différentielle d'ordre 1 par la méthode d'Euler avec un pas de temps $h$, on va donc:
 * définir une fonction $f(t,y)$ qui est une expression de la dérivée obtenue par l'équation différentielle:
+
 $$
 \frac{\rm{d}y}{\rm{dt}}(t) = f(t,y)
 $$
 * créer un vecteur temps contenant les instants $t_k = t_0 + k \times h$
 * calculer un vecteur contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
+
 $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$
