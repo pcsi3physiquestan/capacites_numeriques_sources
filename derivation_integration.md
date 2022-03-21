@@ -123,12 +123,81 @@ _Note : La dérivée centrée est en général plus précise._
 ```
 ````
 
-### Cas étudiés et pas d'intégration
+### Cas étudiés et pas de calcul
 En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une estimation du nombre dérivée pour plus valeur $x_i \in [a,b]$ avec un pas $h$. On distingue deux cas:
 * La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de la dérivée. On peut alors choisir les $x_i$ et choisir le pas d'intégration comme on veut.
 ```{margin} Cas des valeurs discrètes
 C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple.
 
-_Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors être calculé que par dérivation à droite et le nombre dérivée en $x_N$ (dernier échantillon) ne peut être calculé que par dérivation à gauche. Pour les autres, on a le choix._
+_Note : Par manque d'information, le nombre dérivée en $x_0$ ne peut alors être calculé que par dérivation à droite et le nombre dérivée en $x_{N-1}$ (dernier échantillon) ne peut être calculé que par dérivation à gauche. Pour les autres, on a le choix._
 ```
-* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$. On ne peut alors calculer la dérivée de $f$ qu'aux points $x_k$ et le pas d'intégration est nécessairement $h = x_{k+1} - x_k$ (_à adapter pour la dérivée à gauche et centrée_).
+* La fonction $f$ n'est pas connue. On a juste les valeurs $y_k = f(x_k)$ pour des abscisses $x_k$ (k entier dans $[0;N-1]$). On ne peut alors calculer la dérivée de $f$ qu'aux points $x_k$ et le pas d'intégration est nécessairement $h = x_{k+1} - x_k$ (_à adapter pour la dérivée à gauche et centrée_).
+
+
+## Intégration numérique
+### Principe
+> Rappel : L'intégrale d'une fonction $f$ sur l'intervalle $[a; b]$ est définie par:
+> $$I = \int_a^b f(x) dx = \lim_{N \to \infty} \sum_{i=0}^{N-1} f(x_i) \times h$$
+> avec $x_i = a + \frac{b-a}{N}i$ et $h = \frac{b-a}{N}
+
+L'idée de l'intégration numérique est donc d'approcher le calcul intégrale en prenant une valeur finie pour $N$, c'est-à-dire une valeur non nulle pour $h$ :
+
+$$
+I \approx \sum_{i=0}^{N-1} f(x_i) \times h
+$$
+
+```{topic} Relation de récurrence
+
+Si l'on définit $I_k = \sum_{i=0}^{k} f(x_i) \times h$, on remarque la relation de récurrence:
+
+$$
+I_{k+1} = I_k + f(x_{k+1}) \times h
+$$
+
+et $I \approx I_{N-1}$
+
+C'est une méthode très pratique pour calculer I par une boucle.
+```
+
+### Type d'intégration
+On distingue quatre types d'intégration:
+
+````{tabbed} Méthode des rectangles à droite
+On commence à $a$ et on s'arrête à $b - h$.
+
+```{figure} ./images/rectangle_gauche.png
+:name: rectangle_droite
+:align: center
+```
+````
+
+````{tabbed} Méthode des rectangles à gauche
+On commence à $a + h$ et on s'arrête à $b$.
+
+```{figure} ./images/rectangle_droite.png
+:name: rectangle_gauche
+:align: center
+```
+````
+
+````{tabbed} Méthode des rectangles centrés
+On commence à $a + h / 2$ et on s'arrête à $b - h / 2$.
+
+```{figure} ./images/rectangle_centre.png
+:name: rectangle_centre
+:align: center
+```
+````
+
+````{tabbed} Méthode des trapèzes
+L'aire d'un trapèze est:
+
+$$
+\mathcal{A} = \frac{f(a + h) + f(a)}{2}h
+$$
+
+```{figure} ./images/trapeze.png
+:name: trapeze
+:align: center
+```
+````
