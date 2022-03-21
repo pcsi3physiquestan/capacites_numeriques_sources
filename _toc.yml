@@ -15,6 +15,7 @@ chapters:
   sections:
   - file: elec_reponse_o1_base.md
   - file: elec_reponse_o1_complet.md
+  - file: elec_reponse_o1_rampe.md
 - file: elec_filtrage.md
 - file: meca_non_lineaire.md
 - file: meca_pendule.md

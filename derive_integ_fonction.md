@@ -13,6 +13,7 @@ kernelspec:
 ---
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
+(deriv_int_fn)=
 # Utilisation de fonctions
 
 Par la suite, on sera amené à réutiliser l'intégration et la dérivation numérique sur des vecteurs de valeurs comme réalisée dans [la dernière partie](cas_exp). On va donc écrire deux fonctions `deriv` et `integ` qui vont réaliser respectivement :
