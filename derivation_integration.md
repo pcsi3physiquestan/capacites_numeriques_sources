@@ -53,18 +53,17 @@ Kg = 2 - Kd
 xd = np.array([np.pi / 4, np.pi / 4 * Kd])
 xd2 = np.array([np.pi / 4, np.pi / 4, np.pi / 4 * Kd, np.pi / 4 * Kd])
 yd = f1(xd)
-yd2 = np.insert(np.insert(yd, 0, 0), 0, -1)
-
+yd2 = np.append(np.insert(yd, 0, 0), 0)
 xg = np.array([np.pi / 4 * Kg, np.pi / 4])
 xg2 = np.array([np.pi / 4 * Kg, np.pi / 4 * Kg, np.pi / 4, np.pi / 4])
 yg = f1(xg)
-yg2 = np.insert(np.insert(yg, 0, 0), 0, -1)
+yg2 = np.append(np.insert(yg, 0, 0), 0)
 
 xc = np.array([np.pi / 4 * Kg, np.pi / 4 * Kd])
 xc2 = np.array([np.pi / 4 * Kg, np.pi / 4 * Kg, np.pi / 4 * Kd, np.pi / 4 * Kd])
 xc3 = [np.pi / 4 * Kg, np.pi / 4, np.pi / 4 * Kd]
 yc = f1(xc)
-yc2 = np.insert(np.insert(yc, 0, 0), 0, -1)
+yc2 = np.append(np.insert(yc, 0, 0), 0)
 dyd = df1(xc)
 
 f, ax = plt.subplots()
