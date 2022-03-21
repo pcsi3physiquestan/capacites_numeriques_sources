@@ -57,8 +57,8 @@ yd2 = f1(xd2)
 
 xg = np.array([np.pi / 4 * Kg, np.pi / 4])
 xg2 = np.array([np.pi / 4 * Kg, np.pi / 4 * Kg, np.pi / 4, np.pi / 4])
-yg = f1(xc)
-yg2 = f1(xc2)
+yg = f1(xg)
+yg2 = f1(xg2)
 
 xc = np.array([np.pi / 4 * Kg, np.pi / 4 * Kd])
 xc2 = np.array([np.pi / 4 * Kg, np.pi / 4 * Kg, np.pi / 4 * Kd, np.pi / 4 * Kd])
