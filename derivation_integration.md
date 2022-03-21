@@ -119,5 +119,6 @@ $$ f'(x_0) \approx \frac{f(x_0) - f(x_0 - h)}{h}$$
 $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - h)}{2h}$$
 ```{glue:figure} deriv_c
 :align: center
+_Note : La dérivée centrée est en général plus précise._
 ```
 ````
