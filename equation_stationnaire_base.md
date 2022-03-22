@@ -29,8 +29,7 @@ i = I_s\left(\exp \left(\frac{u_D}{V_T}\right) - 1\right)
 $$
 
 avec $I_s = 95 \rm{\mu A}$ et $V_D = 30 \rm{mV}$
-````
-````{panels}
+---
 ```{figure} ./images/diode.png
 :name: label_image
 :align: center
@@ -103,8 +102,7 @@ $$
 :align: center
 Point de fonctionnement
 ```
-````
-````{panels}
+---
 ```{glue:figure} eq_res
 :name: eq_rs
 :align: center
