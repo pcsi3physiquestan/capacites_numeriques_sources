@@ -7,6 +7,10 @@ chapters:
   sections:
   - file: signal_fourier_base.md
   - file: signal_fourier_complet.md
+- file: equation_stationnaire.md
+  sections:
+  - file: equation_stationnaire_base.md
+  - file: equation_stationnaire_fonction.md
 - file: derivation_integration.md
   sections:
   - file: derivation_base.md
