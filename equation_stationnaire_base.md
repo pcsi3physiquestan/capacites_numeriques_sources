@@ -30,14 +30,12 @@ $$
 
 avec $I_s = 95 \rm{\mu A}$ et $V_D = 30 \rm{mV}$
 ````
-
 ````{panels}
 ```{figure} ./images/diode.png
 :name: label_image
 :align: center
 Titre
 ```
-
 ````
 
 ```{code-cell}
@@ -105,7 +103,8 @@ $$
 :align: center
 Point de fonctionnement
 ```
-
+````
+````{panels}
 ```{glue:figure} eq_res
 :name: eq_rs
 :align: center

@@ -41,6 +41,12 @@ Principe:
     * soit le maximum de $f$ sur l'intervalle $[a_{finale}, b_{finale}]$ est inférieure à une précision choisie $precy$
     * on peut imposer les deux conditions si nécessaire.
 
+```{figure} ./images/recherche_racine_dichotomie.gif
+:name: dicho_gr
+:align: center
+Méthode par dichotomie
+```
+
 ## Méthode de Newton
 _Condition:_ $f$ est de classe $C^1$ sur l'intervalle $[a,b]$.
 
@@ -58,5 +64,11 @@ $$
 
 * On recommence en travaillant avec la tangente en $x_1$
 * On s'arrête quand un critère similaire à la dichotomie (écart entre deux abscisses $x_{i+1}$ et $x_i$ ou faible valeur de $f(x_i)$) est atteint.
+
+```{figure} ./images/recherche_racine_newton.gif
+:name: newton_gr
+:align: center
+Méthode par Newton
+```
 
 _Avantage et inconvénient:_ La méthode de Newton est beaucoup plus rapide que la méthode par dichotomie mais elle nécessite de connaître la dérivée ou de la calculer par dérivation numérique.
