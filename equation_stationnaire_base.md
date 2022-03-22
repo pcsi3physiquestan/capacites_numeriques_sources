@@ -33,6 +33,7 @@ avec $I_s = 95 \rm{\mu A}$ et $V_D = 30 \rm{mV}$
 ```{figure} ./images/diode.png
 :name: label_image
 :align: center
+:width: 150px
 Titre
 ```
 ````
