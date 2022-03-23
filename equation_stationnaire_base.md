@@ -107,7 +107,7 @@ Point de fonctionnement
 ```{glue:figure} eq_res
 :name: eq_rs
 :align: center
-Fonction à étudier
+Fonction $f$ à étudier
 ```
 ````
 
