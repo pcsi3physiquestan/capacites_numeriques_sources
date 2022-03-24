@@ -26,7 +26,7 @@ Nous allons chercher à étudier les oscillations d'un pendule simple :
 1. Aux petites oscillations. Ce sera l'occasion de tester le schéma d'Euler mis en place pour étudier le système en le comparant aux attentes.
 2. Pour des oscillations quelconques. On cherchera alors à déterminer la période des oscillations en fonction de l'amplitude pour observer le __non isochoronisme des oscillations__. On comparera notamment les résultats trouvés à la formule théorique approchée.
 
-### Mise en équation
+### Rappel : Mise en équation
 On considère un pendule simple de longueur $l$ sans sources d'amortissement dans un champ de pesanteur uniforme $g$. La masse au bout du pendule est $m$.
 
 Pour les applications numériques, on prendra $l = 1 m; g = 9.81 m.s^{-2}; m=1 kg$.
@@ -51,7 +51,7 @@ $$
 
 et l'énergie cinétique : $E_c = {1 \over 2} m l^2 \dot \theta^2$
 
-### Schéma d'Euler
+### Rappel : Schéma d'Euler
 On va utiliser un schéma d'Euler explicite. Le système étant d'ordre 2, on utilise un système d'équations différentielles définit par la relation vectorielle :
 
 $$
@@ -87,19 +87,19 @@ Cette fois, on va directement raisonner avec le __vecteur $Y_k$__ et non avec de
 >  __Exercice 1 :__  
 > Vous devez :
 > 1. Ecrire une fonction `F_petit` qui prend comme argument un flottant `t` et un vecteur `Y` à deux éléments et qui renvoie le vecteur `F(Y, t)` dans le cas d'un pendule aux petites oscillations.
-> 2. Ecrire une fonction `euler` qui prend comme arguments :
+> 2. Ecrire (ou plutôt réécrire en servant de ce que vous avez fait précédemment) une fonction `euler` qui prend comme arguments :
 >     * une fonction `F` (semblable à `F_petit` qui prendra le même type d'arguments et renverra le même type de vecteur).
 >     * un vecteur `Y0` donnant les __deux__ conditions initiales (ici à $t=0$) sur les deux composants de `Y`
 >     * un flottant `h` qui sera le pas d'intégration $h = t_{k+1} - t_k$
->     * un flottant `tf` qui sera le temps final de l'intégration.
+>     * deux flottants `t0` et `tf` qui seront les temps initial et final de l'intégration.
 >     et qui renvoie :
 >     * un tableau à 3 colonnes contenant respectivement : les temps $t_k$, les angles $\theta_k$ et les vitesses angulaires $\dot \theta_k$.
 
 _Données utiles :_  
-* Pour créer un tableau, de taille N lignes et 3 colonnes rempli de 0, la syntaxe est `np.zeros((N, 3))`. A vous de prévoir le nombre de lignes du tableau.
+* pour rappel, il est plus simple de créer une liste de vecteurs à 3 éléments qu'on transforme en tableau de N lignes et 3 colonnes.
 * La sélection de la ligne d'indice i d'un tableau se fait par `tableau[i]`. Attention, les indices commencent à 0 et se terminent à N-1.
-* La sélection de l'élément d'indice (i, j) d'un tableau se fait par `tableau[i, j]`. Attention, les indices commencent à 0 et se terminent à N-1.
-* Vous pouvez remplier directement une ligne d'un tableau numpy par la syntaxe `tableau[indice_ligne] = [v1, v2]`
+* La sélection de la colonne d'indice j d'un tableau se fait par `tableau[:,j]`. Attention, les indices commencent à 0 et se terminent à m-1.
+* La sélection de l'élément d'indice (i, j) d'un tableau se fait par `tableau[i, j]`. Attention, les indices commencent à 0 et se terminent à N-1 (ou m-1).
 
 ```{code-cell} ipython3
 """

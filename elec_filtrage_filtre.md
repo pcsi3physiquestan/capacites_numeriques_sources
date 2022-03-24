@@ -73,6 +73,7 @@ _Pour toute la suite, on travaillera avec un filtre d'ordre $n_{min}$._
 > 2. Tracer le diagramme de Bode en gain du filtre pour $f_c$ trouvée précédemment et vérifier visuellement son ordre et que les gains en $f_1$ et $f_2$ suivent le cahier des charges.
 
 ```{code-cell} ipython3
+:tags: [remove-output,hide-input]
 # Vous pouvez utiliser (en la recopiant) la fonction `dicho` que vous avez créés dans les TP précédents.
 
 ```

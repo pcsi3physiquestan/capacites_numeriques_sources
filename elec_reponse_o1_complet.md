@@ -22,9 +22,9 @@ La page ci-présente existe en version notebook téléchargeable grâce au bouto
 > 2. Ecrire une fonction `euler` 
 >     * qui prend en arguments :
 >         * une variable `f` qui sera une fonction
+>         * un flottant `y0` correspond à y(t=0)
 >         * un flottant `h` qui sera le pas $h$ d'intégration
 >         * deux flottants `t0` et `tf` donnant les temps initiaux et finaux de l'intervalle sur lesquels on va intégrer le signal (Note : `tf` ne sera pas forcément atteint)
->         * un flottant `y0` donnant la valeur de $y(t)$ à l'instant `t0` 
 >     * et qui renvoie deux vecteurs numpy : 
 >         * le premier contient les temps $t_k$ où on a évaluer la fonction (on commence à `t0`)
 >         * le second contient les valeurs estimées de $y(t_k)$ ($y_k$).

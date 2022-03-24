@@ -20,11 +20,15 @@ chapters:
   - file: elec_reponse_o1_base.md
   - file: elec_reponse_o1_complet.md
   - file: elec_reponse_o1_rampe.md
+- file: elec_reponse_o2.md
+  sections:
+  - file: elec_reponse_o2_base.md
+  - file: elec_reponse_o2_complet.md
 - file: elec_filtrage.md
   sections:
   - file: elec_filtrage_filtre.md
   - file: elec_filtrage_application.md
-- file: meca_non_lineaire.md
 - file: meca_pendule.md
+- file: meca_non_lineaire.md
 - file: meca_force_centrale.md
 - file: thermo_statique.md

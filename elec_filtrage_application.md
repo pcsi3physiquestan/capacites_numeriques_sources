@@ -158,6 +158,7 @@ Si tout à été fait correctement, la cellule ci-dessous peut-être exécutée 
 Vous pourrez le comparer à l'[extrait original](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/signal_court.wav?raw=true) (le bruit ayant été ajouté artificiel pour ce TD).
 
 ```{code-cell} ipython3
+:tags: [remove-output,hide-input]
 # On doit normaliser le signal pour que les valeurs soit comprises entre -1 et 1
 # En pratique, on place les valeurs entre -0.5 et 0.5 pour éviter tout risque de saturation
 reponse2 = []

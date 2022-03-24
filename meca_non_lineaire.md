@@ -35,8 +35,9 @@ et la masse de l'hydrogène : $m_H = 1.0 \times 10^{-27} kg$
 
 Pour éviter de traiter des puissances trop importantes, on va changer les unités d'étude : la __masse__ sera en _unité de masse atomique_, les __distances__ en _Angstrom_, les __charges__ en nombre de fois _la charge élémentaire_ et  les __temps__ en _femtosecondes_. Les constantes précédentes prennent alors les valeurs suivantes (UA = Unité arbitraire):
 
-$C = 2.2 \times 10^{-1} (UA); \alpha = 0.40; n = 12; \epsilon_0 = 3.45 \times 10^{-1} (UA); e=1 (UA); m_H = 1 (UA)$
+$C = 1.4 \times 10^{-1} (UA); \alpha = 0.40; n = 12; \epsilon_0 = 3.45 \times 10^{-1} (UA); e=1 (UA); m_H = 1 (UA)$
 
+De plus, 1 unité arbitraire d'énergie dans les résultats obtenus correspond à $100\rm{eV} = 1.6 \times 10^{-17} \rm{J}$ et 1 unité arbitraire de force correspond à $0.62 \times 10^{7} \rm{N}$
 +++
 
 ### Etude de l'énergie potentielle.
