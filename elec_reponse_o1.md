@@ -50,6 +50,7 @@ $$
 \int_{t_0}^{t_k} \frac{\rm{d}y}{\rm{dt}}(t) \rm{d}t = \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t
 $$
 soit:
+
 $$
 y(t_{k}) - y(t_0) = \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t
 $$
@@ -57,13 +58,16 @@ $$
 _Une méthode d'intégration numérique consiste à approcher l'intégrale du membre de droite par un calcul numérique comme on a pu le faire précédemment. Dans le cas de la méthode d'Euler, il s'agit d'approcher cette intégrale par la méthode des rectangles vue précédemment._
 
 En pratique, on utilise une relation de récurrence comme pour le calcul d'intégrale pour calculer les termes de la suite $(t_k)$ pas à pas. En effet, de:
+
 $$
 \begin{cases}
 y(t_{k}) &= y(t_0) + \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t\\
 y(t_{k+1}) &= y(t_0) + \int_{t_0}^{t_{k+1}} f(t, y(t)) \rm{d}t
 \end{cases}
 $$
+
 Il vient la relation de récurrence:
+
 $$
 y(t_{k+1}) = y(t_k) + \int_{t_k}^{t_{k+1}} f(t, y(t)) \rm{d}t \underbrace{\approx}_{rectangle} y(t_k) + f(t_k, y({t_k})) * h
 $$
@@ -81,6 +85,7 @@ y_{k+1} = y_k + f(t_k, y_k) * h
 On parle d'approximation à l'ordre 1.
 ````
 On peut voir aussi la méthode d'Euler comme une approximation de la dérivée par un taux de variation fini calculé pour un pas de temps $h$ choisi :
+
 $$
 \frac{\rm{d}y}{\rm{dt}} \approx \frac{y(t_{k+1}) - y(t_k)}{t_{k+1}-t_k}
 $$
@@ -89,9 +94,11 @@ $$
 On rappelle que $t_{k+1}-t_k = h$
 ```
 On peut ainsi déterminer la valeur de $y_{k+1}=y(t_{k+1})$ par récurrence à partir de $y_k=y(t_k)$ et $f$ :
+
 $$
 y_{k+1} = y_k + h \times f(t_k, y_k)
 $$
+
 _C'est le même schéma d'Euler_
 ### Synthèse
 
@@ -101,11 +108,14 @@ Pour résoudre numériquement une équation différentielle d'ordre 1 par la mé
 ```{margin}
 La définition de $y_k$ par récurrence impose d'utiliser une boucle pour sa création.
 ```
+
 $$
 \frac{\rm{d}y}{\rm{dt}}(t) = f(t,y)
 $$
+
 * créer un vecteur temps contenant les instants $t_k = t_0 + k \times h$
 * calculer un vecteur contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
+
 $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$
