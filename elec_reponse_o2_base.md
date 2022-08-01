@@ -17,11 +17,12 @@ La page ci-présente existe en version notebook téléchargeable grâce au bouto
 ## Mise en pratique
 > __Exercice :__  
 > Pour les études numériques, on prend $R=1k\Omega$ et $C= 1nF$.
-> 
-> 2. Ecrire une fonction `F(Y, t)` qui prend comme argument le vecteur `Y` et l'instant `t` et qui renvoie un __vecteur__ numpy de taille 2 correspondant au vecteur donné précédemment.
-> 3. Ecrire une fonction `euler(F, Y0, tf, pas)` qui prend comme argument la fonction `F`, un vecteur `Y0` donnant les conditions initiales $u(0), v(0)$, et qui réalise l'intégration d'Euler par `pas` d'intégration de $t=0$ à `tf`.Elle renverra un tableaux numpy à deux colonnes contenant pour chaque lignes les valeurs de Y aux temps $t_k$ et un vecteur numpy contenant les temps $t_k$. __S'inspirer de ce qui a été fait à l'ordre 1.__
-> 4. Obtenir l'expression théorique de $u(t)$ et $v(t)$ par le calcul pour un jeu de conditions initiales $u0, v0$ puis créer deux fonctions `u_th(t, Y0)` et `v_th(t, Y0)` qui renvoie un vecteur des valeurs de u (ou v) par l'expression théorique obtenue pour un vecteur de valeurs de temps `t`.
-> 5. Obtenir puis tracer l'évolution temporelle de $u(t)$ et $v(t)$ par intégration numérique ainsi que par calcul théorique et comparer les deux tracés. On adaptera le pas d'intégration pour limiter les écarts. On prend $u(0) = 0; v(0) = v_0 = 1V$.
+```{margin}
+_Si vous avez bien travaillé avec des vecteurs, la fonction `euler` utilisée à l'ordre 1 devrez ne pas nécessiter beaucoup de changements._
+```
+> 1. Ecrire une fonction `F(t, Y)` qui prend comme argument le vecteur `Y` et l'instant `t` et qui renvoie un __vecteur__ numpy de taille 2 correspondant au vecteur donné précédemment.
+> 2. Ecrire une fonction `euler(F, Y0, tf, pas)` qui prend comme argument la fonction `F`, un vecteur `Y0` donnant les conditions initiales $u(0), v(0)$, et qui réalise l'intégration d'Euler par `pas` d'intégration de $t=0$ à `tf`. Elle renverra un tableaux numpy à deux colonnes contenant pour chaque lignes les valeurs de Y aux temps $t_k$ et un vecteur numpy contenant les temps $t_k$. __S'inspirer de ce qui a été fait à l'ordre 1.__
+> 4. Obtenir puis tracer l'évolution temporelle de $u(t)$ et $v(t)$ par intégration numérique et anlyser le tracé. On adaptera le pas d'intégration à bon escient. On prend $u(0) = 0; v(0) = v_0 = 1V$.
 
 ```{code-cell}
 :tags: [remove-output,hide-input]
@@ -38,7 +39,8 @@ $$
 
 Soit en posant $w = \dot u = \frac{\rm{d}u}{\rm{dt}}$:
 
->$$ {\rm{d} \over \rm{d}t}
+>
+$$ {\rm{d} \over \rm{d}t}
 \begin{pmatrix}
 u\\
 w

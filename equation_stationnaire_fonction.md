@@ -65,8 +65,8 @@ f_test(u)
 
 * L'argument `f` est la __fonction__ donc `f` ou `f_test`, pas _ce qu'elle renvoie_ (c'est-à-dire `f(0)` ou `f_test(1)`, _on a la même différence entre une fonction et l'image d'une fonction_).
 * Par contre, à l'intérieur de `dicho`. Comme `f` est une fonction, on pourra l'appeler en utilisant `f(a)`, `f(1)`...
-* On ne modifier __jamais__ la valeur d'un argument (ici `a0` et `b0`) donc il faut les réassigner à deux variables internes à la fonction (`a` et `b` ?) et modifier ces deux variables dans la boucle.
-* Il est conseillé de tester initialement si le produit $f(a0)f(b0)$ est bien négatif et renvoyer `None` sinon. Cela évitera des résultats absurdes si l'on cherche dans un intervalle où il n'y a pas de racine. _Quand vous aurez avancé le cours d'informatique, vous pourrez remplacer ce comportement par le renvoie d'une erreur ou Exception._
+* Ne pas modifier les valeurs des arguments `a0` et `b0` : il faut les réassigner à deux variables internes à la fonction (_`a` et `b` par exemple_) et modifier ces deux variables dans la boucle.
+* Il est conseillé de tester initialement si le produit $f(a0)f(b0)$ est bien négatif et renvoyer `None` sinon. Cela évitera des résultats absurdes si l'on cherche dans un intervalle où il n'y a pas de racine. _Quand vous aurez avancé le cours d'informatique, vous pourrez remplacer ce comportement par une assertion._
 
 ```{code-cell}
 :tags: [remove-output,hide-input]

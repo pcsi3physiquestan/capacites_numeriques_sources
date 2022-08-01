@@ -106,19 +106,10 @@ où $h$ est le pas d'intégration.
 +++
 
 > __Exercice 2__:
-> 1. Préciser l'expression de $f(t, Y)$ pour notre système et définir une fonction `f_hcl(t, Y)` qui renvoie cette expression.
-> 2. Définir une fonction `euler` qui prend pour argument : 
->    * `f` : la fonction du schéma d'Euler
->    * `h` : le pas d'intégration choisi
->    * `Y0` : les conditions initiales sur la position et la vitesse au temps initial $t=0$
->    * `tf` : le temps final pour l'intégration.
->  
->    et qui renvoie trois vecteurs :  
->    * `tk` les temps où on calcule les positions vitesses
->    * `Yk` le vecteur contenant les positions $x(t_k)$ et les vitesses $v(t_k)$
-> 3. Vous pouvez tester votre fonction sur une chute libre ($f(t, Y) = g = 10$) avec un faible nombre de points.
+> 1. Préciser l'expression de $f(t,Y(t))$ pour notre système et définir une fonction `f_hcl(t,Y)` qui renvoie cette expression.
 
-```{code-cell} ipython3
+```{code-cell}
+:tags: [remove-output,hide-input]
 """
 Pensez à réutiliser les fonctions déjà définies.
 """
@@ -136,59 +127,15 @@ On cherchera à observer par les tracés temporelles et le portrait de phase (tr
 > __Exercice 3:__  
 > Vous devez :
 > 1. Définir une fonction `Ec(v)` qui renvoient l'énergie cinétique du système pour une vitesse donnée.
-> 2. Utiliser votre implémentation du schéma d'Euler pour obtenir les temps $t_k$, positions $x(t_k)$ et vitesses $v(t_k)$ pour les deux cas étudiées puis les énergies potentielles $E_p(t_k)$, énergie cinétique $E_c(t_k)$ et énergie mécanique $E_m(t_k)$ aux temps $t_k$.
-> 3. Tracer alors une fenêtre avec 4 graphiques : l'un donnant $x(t)$, le second $v(t)$, le troisième le portrait de phase et le quatrième l'évolution des 3 termes énergétiques.
-> 4. Observer l'influence du pas d'intégration et l'adapter pour une intégration correcte.
+> 2. Utiliser `odeint` pour obtenir les temps $t_k$, positions $x(t_k)$ et vitesses $v(t_k)$ pour les deux cas étudiées puis les énergies potentielles $E_p(t_k)$, énergie cinétique $E_c(t_k)$ et énergie mécanique $E_m(t_k)$ aux temps $t_k$.
+> 3. Tracer alors une fenêtre avec 4 graphiques : l'un donnant $x(t)$, le second $v(t)$, le troisième le portrait de phase $v(x)$ et le quatrième l'évolution des 3 termes énergétiques $E_p(t), E_c(t), E_m(t)$. _Adapter le pas d'intégration pour une intégration correcte._
 > 5. Observer si ces évolutions sont cohérentes avec l'approximation linéaire et sinon quelles sont les différences.
 
-```{code-cell} ipython3
+```{code-cell}
+:tags: [remove-output,hide-input]
+"""Ne pas oublier d'importer la fonction odeint"""
 
 ```
-
-### Fonctions de la bibliothéque scipy
-Nous allons utiliser la fonction `odeint` de la bibliothèque `scipy.integrate`. Sa signature est :
-
-```
-scipy.integrate.odeint(func, y0, t, tfirst=True)
-```
-
-* `func` : fonction qui renvoie le vecteur :
-
-$$\begin{pmatrix}
-v_k\\
-f(t, x, v)
-\end{pmatrix}
-$$
-
-Plus généralement, on utiliser la représentation matricielle :
-
-$$
-Y_{k+1} = Y_k + h * F(t, x, v)
-$$
-
-avec 
-
-$$
-Y_k = \begin{pmatrix}
-x_k\\
-v_k
-\end{pmatrix}
-$$
-
-et $F$ une fonction qui renvoie un vecteur (deux valeurs). Ici le vecteur donné précédemment.
-* `y0` est un __vecteur__ donnant les conditions initiales.
-* `t` est le vecteur pour lequels les valeurs de $Y_k$ (positions et vitesses) seront calculées. (`t` doit être ordonné).
-
-__Précision sur le vecteur `t` et le pas d'intégration.__  
-_Vous remarquerez qu'on ne donne pas de pas d'intégration. Le vecteur `t` ne fait pas office de pas d'intégration. Les valeurs de position et vitesse à ces temps seront calculées ensuite par interpolation.  
-C'est la fonction odeint elle-même qui va déterminer le pas d'intégration par comparaison d'erreurs entre plusieurs méthodes. Elles peut fait varier ce pas d'intégration au cours du calcul : on dit que c'est une méthode à __pas variable.__ On peut régler la tolérance sur l'erreur avec des arguments optionnels non présentés ici.  
-Ce pas pouvant varier et quelles fois être grand, il est préférable de donner explicitement un vecteur avec des valeurs temps pour calculer les positions et vitesses a posteriori._
-
-> __Exercice 4:__  
-> 1. Créer une fonction `Fhcl(t, Y)` qui prend comme argument un temps `t` et le vecteur `Y` composé de deux éléments $(x_k, v_k)$ et qui renvoie le vecteur $F(t, Y)$ décrit précédemment.
-> 1. A vous de comprendre et utiliser la fonction précédente pour réaliser l'intégration du problème et étudier les vibration de la molécule.
-
-+++
 
 ## Trajectoire de diffusion
 > __Exercice 5:__  

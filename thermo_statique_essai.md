@@ -1,5 +1,6 @@
 ---
 jupytext:
+  encoding: '# -*- coding: utf-8 -*-'
   formats: ipynb,py:light,md:myst
   text_representation:
     extension: .md
@@ -11,6 +12,7 @@ kernelspec:
   language: python
   name: python3
 ---
+
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 # Etude de l'atmosphère terrestre
@@ -102,16 +104,56 @@ $$
 
 ## Détermination du profil de pression et température
 
-__Attention aux unités m/km.__
 > __Exercice 1 :__  
-> 1. Ecrire une fonction `kISA` qui prend comme argument une altitude `z` et qui renvoie le gradient de température $k_{ISA}(z)$ associé. Pensez à utiliser les listes définies au début. _On supposera que l'altitude reste toujours inférieure à 85km, on ne s'occupera donc pas du cas de la Mésopause._
+> 1. Ecrire une fonction `kISA` qui prend comme argument une altitude `z` et qui renvoie le gradient de température $k_{ISA}(z)$ associé. Pensez à utiliser les listes définies au début.
 > 2. Ecrire une fonction `F_atm(z, Y)` qui prend comme argument l'altitude `z` et le vecteur `Y`$=[T(z), P(z)]$ et qui renvoie la fonction `F` définie précédemment pour ces valeurs. _On rappelle que `F` doit être un __vecteur__._
-> 3. Utiliser `odeint` pour déterminer le profil de température et de pression dans l'atmosphère
+> 3. Ecrire une fonction `euler(F, pas, Y0, zf)` qui implémente le schéma d'Euler explicite pour une fonction `F` avec un `pas` d'intégration, des conditions aux limites données par le vecteur `Y0`  en $z=0$ et l'altitude finale de l'intégration `zf`. Elle doit renvoyer un vecteur donnant les altitudes de calcul et un tableau à deux colonnes donnant les solutions $[T_k, P_k]$
 > 4. Utiliser la fonction précédente pour obtenir le profil de température et de pression dans l'atmosphère pour le modèle ISA.
 > 5. Tracer deux deux graphiques les profils $T(z)$ et $P(z)$.
 
 ```{code-cell} ipython3
+from scipy.integrate import odeint
 """Les bibliothèques scientifiques ont déjà été importées"""
+Mair = 0.029
+g = 9.81
+R = 8.314
+
+def kISA(z):
+    i=0
+    while i<len(gradient) and z >= altitude[i]*1000:
+        i = i +1
+    return gradient[i-1]/1000
+
+def F_atm(z,Y):
+    return [kISA(z), -Mair * g / (R * Y[0]) * Y[1]]
+
+zk = np.arange(0, 84000, 1)
+sol = odeint(F_atm, [288., 1.013e5], zk, tfirst=True)
+T_sol = sol[:,0]
+P_sol = sol[:,1]
+
+f, ax = plt.subplots(1,2, figsize=(12,8), sharey="row")
+f.suptitle("Profils de température et de pression")
+ax[0].set_xlabel("T")
+ax[0].set_ylabel("z")
+ax[1].set_xlabel("P")
+ax[1].set_ylabel("z")
+
+ax[0].plot(T_sol, zk)
+ax[1].plot(P_sol, zk)
+ax[0].grid()
+ax[1].grid()
+plt.show()
+print(P_sol[-10:])
+```
+
+> __Exercice 2 :__  
+> 1. Reprendre l'exercice précédent mais en utilisant la fonction `odeint` dela bibliothèque `scipy.integrate`
+
+_Indications utiles_ : 
+* Pour pouvoir réutiliser la fonction `F_atm`, pensez à ajouter l'argument `tfirst=True` dans la fonction `odeint`.
+
+```{code-cell} ipython3
 from scipy.integrate import odeint
 ```
 

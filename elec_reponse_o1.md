@@ -25,7 +25,7 @@ La _méthode d'Euler_ est une méthode numérique d'intégration d'une équation
 Un équation différentielle d'ordre 1 peut se mettre sous la forme :
 
 $$
-\frac{\rm{d}y}{\rm{dt}}(t) = f(t, y)
+\frac{\rm{d}y}{\rm{dt}}(t) = f(t, y(t))
 $$
 avec $y(t_0) = y_0$
 
@@ -41,42 +41,66 @@ où $y$ est la fonction inconnue.
 > $$f(t, u) = \frac{1}{RC}\left (E(t) - u(t) \right )$$
 
 ### Schéma d'intégration d'Euler explicite
+On considère N+1 instants $t_k$ espacés d'un _pas d'intégration_ $h$ ($t_{k+1} - t_k = h$) et commençant à $t_0$. On note les valeurs de la fonctions $y$ aux instants $t_k$ $y_k = y(t_k)$. On définit ainsi deux suites $(t_k)_{k\in[0,N]}$ et $(y_k)_[k \in 0,N]$
 
-La méthode d'Euler consiste à approximer la dérivée par un taux de variation fini calculé pour un pas de temps $h$ choisi :
-
-$$
-\frac{\rm{d}y}{\rm{dt}} \approx \frac{y(t + h) - y(t)}{h}
-$$
-(on parle d'approximation à l'ordre 1.)
-
-On peut ainsi déterminer la valeur de la fonction $y(t + h)$ à partir de $f$ et de la valeur de la fonction à l'instant $t$ :
+#### Vision intégrale
+Intégrons l'équation différentielle entre $t_0$ et $t_k$:
 
 $$
-y(t + h) = y(t) + h \times f(t, y(t))
+\int_{t_0}^{t_k} \frac{\rm{d}y}{\rm{dt}}(t) \rm{d}t = \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t
+$$
+soit:
+$$
+y(t_{k}) - y(t_0) = \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t
 $$
 
-On ne va donc pas calculer la fonction $y(t)$ pour tout instant $t$ mais une suite de valeurs $y_k$ aux instants $t_k = t_0 + k\times h$ avec $k$ entier. On obtient une suite $(y_k)$ définie par la récurrence :
+_Une méthode d'intégration numérique consiste à approcher l'intégrale du membre de droite par un calcul numérique comme on a pu le faire précédemment. Dans le cas de la méthode d'Euler, il s'agit d'approcher cette intégrale par la méthode des rectangles vue précédemment._
 
+En pratique, on utilise une relation de récurrence comme pour le calcul d'intégrale pour calculer les termes de la suite $(t_k)$ pas à pas. En effet, de:
 $$
-y_{k+1} = y_k + h \times f(t, y_k)
+\begin{cases}
+y(t_{k}) &= y(t_0) + \int_{t_0}^{t_k} f(t, y(t)) \rm{d}t\\
+y(t_{k+1}) &= y(t_0) + \int_{t_0}^{t_{k+1}} f(t, y(t)) \rm{d}t
+\end{cases}
+$$
+Il vient la relation de récurrence:
+$$
+y(t_{k+1}) = y(t_k) + \int_{t_k}^{t_{k+1}} f(t, y(t)) \rm{d}t \underbrace{\approx}_{rectangle} y(t_k) + f(t_k, y({t_k})) * h
 $$
 
+soit la récurrence qu'on appelle...
+
+````{important} __Schéma d'Euler explicite.__
+\begin{equation}
+y_{k+1} = y_k + f(t_k, y_k) * h
+\end{equation}
+````
+
+#### Vision différentielle
+````{margin}
+On parle d'approximation à l'ordre 1.
+````
+On peut voir aussi la méthode d'Euler comme une approximation de la dérivée par un taux de variation fini calculé pour un pas de temps $h$ choisi :
+$$
+\frac{\rm{d}y}{\rm{dt}} \approx \frac{y(t_{k+1}) - y(t_k)}{t_{k+1}-t_k}
+$$
+
+```{margin}
+On rappelle que $t_{k+1}-t_k = h$
+```
+On peut ainsi déterminer la valeur de $y_{k+1}=y(t_{k+1})$ par récurrence à partir de $y_k=y(t_k)$ et $f$ :
+$$
+y_{k+1} = y_k + h \times f(t_k, y_k)
+$$
+_C'est le même schéma d'Euler_
 ### Synthèse
 
-````{sidebar} Comparaison avec l'intégration numérique
-Le relation de récurrence est identique au cas d'intégration numérique vu [précédemment](inter_pcp). L'intégration numérique est en effet un cas particulier d'intégration d'une équation différentielle où $f(t,y)$... ne dépend pas de $y$ !.
-
-On peut d'ailleurs mathématiquement voir la méthode de résolution comme le calcul de l'intégrale:
-
-$$
-y(t) = \int_{t_0}^{t_k} f(t, y(t)) dt
-$$
-
-L'intégration numérique donne effectivement la relation de récurrence vue [dans la partie sur l'intégration numérique](inter_pcp).
-````
 Pour résoudre numériquement une équation différentielle d'ordre 1 par la méthode d'Euler avec un pas de temps $h$, on va donc:
 * définir une fonction $f(t,y)$ qui est une expression de la dérivée obtenue par l'équation différentielle:
 
+```{margin}
+La définition de $y_k$ par récurrence impose d'utiliser une boucle pour sa création.
+```
 $$
 \frac{\rm{d}y}{\rm{dt}}(t) = f(t,y)
 $$
@@ -86,8 +110,6 @@ $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$
 avec $y_0 = y(t_0)$ la condition initiale.
-
-_La définition de $y_k$ par récurrence impose d'utiliser une boucle pour sa création._
 
 ## Application en électrocinétique.
 On traite le cas général d'un système d'ordre 1 stable de constante de temps $\tau$. On va notamment étudier la réponse à plusieurs entrées :
@@ -102,4 +124,4 @@ On étudiera l'influence du pas d'intégration sur la fiabilité de l'intégrati
 > On travaille avec un circuit $RC$ série dont la constante de temps est $\tau = RC$. On prendra $R = 10\rm{k\Omega}$ et $C = 100 \rm{\mu F}$.  
 > 1. Dans le cas d'un régime libre, préciser l'expression de la fonction $f(t,y)$. Dépend-elle explicitement de $t$?
 > 2. Dans le cas où le RC est relié à une source $E = 1V$, préciser l'expression de la fonction $f(t,y)$. Dépend-elle explicitement de $t$?
-> 3. On veut étudier le régime transitoire, on va donc intégrer de 0 à $t_f$. Comment choisir le temps final $t_f$ pour observer complètement le régime transitoire ? En déduire le nombre de temps $t_k$ de calcul pour un pas $h$ en fonction de $\tau$ et $h$.
+> 3. On veut étudier le régime transitoire, on va donc intégrer de 0 à $t_f$. Comment choisir le temps final $t_f$ pour observer complètement le régime transitoire ? En déduire le nombre de temps $t_k$ de calcul pour un pas $h$ choisi en fonction de $\tau$ et $h$.

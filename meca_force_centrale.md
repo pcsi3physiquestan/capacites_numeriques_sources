@@ -67,20 +67,7 @@ r \\
 $$
 
 ### Schéma d'Euler
-On utlisera directement la fonction native `odeint` de la bibliothèque `scipy.integrate`. Sa signature doit être adaptée pour tenir compte du moment cinétique qui va changer :
-
-```
-Ysol = odeint(F, Y0, t, args=(C,))
-```
-
-avec :
-* `F(Y, t, C)` la fonction telle que $\frac{\rm{d}Y}{\rm{dt}}(t) = F(Y, t, C)$ et $Y = (\theta, r, \dot r)$. `F` doit renvoyer un vecteur. L'argument `C` sera la constante des aires $C = bv_0$. Elle apparaît dans `F` mais variera suivant les conditions initiales.
-* `Y0` les conditions initiales (vecteur)
-* `t` vecteur contenant l'ensemble des instants où l'on veut estimer la fonction `Y(t)`
-* `args = (C,)` permettra de passer à la fonction `F` le troisième argument `C`. On y mettra donc la valeur de la constante des aires. __Attention, les parenthèse et la virgule sont obligatoire.__
-* `Ysol` le tableau renvoyé qui contient les estimations des fonctions (ici $\theta(t), r(t), \dot r(t)$) aux instants du vecteur `t`
-
-
+On utlisera directement la fonction native `odeint` de la bibliothèque `scipy.integrate`.
 
 ### Conditions initiales
 Les conditions initiales ne sont pas directement $\theta, r, \dot r$ mais :

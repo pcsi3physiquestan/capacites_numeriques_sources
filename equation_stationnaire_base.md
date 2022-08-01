@@ -142,8 +142,7 @@ Fonction $f$ à étudier
 > Reprendre la série d'instructions précédentes mais remplacer le critère d'arrêt de la boucle par un test sur le $max(f(a), f(b))$ qui doit être inférieur la précision choisie ($10^{-6} A$). Obtient-on une valeur plus ou moins précise de la tension finale ?
 
 ````{attention}
-L'observation précédente n'est pas une généralité. Suivant la pente de la fonction autour de 0, le test sur l'abscisse ou l'ordonnéeseront plus ou moins performants.
-
+L'observation précédente n'est pas une généralité. Suivant la pente de la fonction autour de 0, le test sur l'abscisse ou l'ordonnée seront plus ou moins performants. _On peut d'ailleurs faire les deux si besoin._
 ````
 
 ```{code-cell}
@@ -152,7 +151,7 @@ L'observation précédente n'est pas une généralité. Suivant la pente de la f
 ```
 
 ## Méthode de Newton
-La méthode de Newton n'étant pas officiellement au programme en physique, ne faire cette partie QUE si vous êtes suffisamment en avance (ou que vous avez fini la partie suivante).
+La méthode de Newton n'étant pas officiellement au programme en physique, __ne faire cette partie QUE si vous êtes suffisamment en avance (ET que vous avez fini la partie suivante)__.
 > __Exercice C:__  
 > 1. (Initialisation) Choisir une valeur $x_0$ dans l'intervalle de départ à stocker dans `x0`.
 > 2. (Boucle) Critère pour continuer : $f(x_0)> prec$. On prendra une précision de $10^{-6}A$. Calculer $x_1$ défini par la méthode de Newton et l'assigner à la variable `x0`.

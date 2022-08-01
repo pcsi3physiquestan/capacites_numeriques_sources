@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Système linéaire
+# Système linéaire et ordre 2
 Le but est de voir comment utiliser la méthode d'intégration d'Euler explicite pour étudier le régime transitoire d'un système d'équations. On a alors un système d'équations différentielles. 
 
 ## Position du problème
@@ -21,7 +21,8 @@ On s'intéresse au pont de Wien en régime libre :
 
 > __Exercice :__
 > 1. (Théorie)Montrer par le calcul que ce circuit est régit par le système d'équation suivant :
-> 
+>
+
 $$
 \begin{cases}
 \frac{\rm{d}u}{\rm{dt}} = - \frac{1}{RC} v - \frac{2}{RC}u\\
@@ -31,8 +32,8 @@ $$
 
 ## Vision vectorielle
 Le système d'équations différentielles précédent peut être vu comme une seule équation différentielle faisant un intervenir des vecteurs:
-
->$$ {\rm{d} \over \rm{d}t}
+>
+$$ {\rm{d} \over \rm{d}t}
 \begin{pmatrix}
 u\\
 v
@@ -56,35 +57,31 @@ $$
 Sa dérivée est:
 
 \begin{equation}
-{\rm{d}Y \over \rm{d}t} = F(Y, t)
+{\rm{d}Y \over \rm{d}t} = F(t, Y(t))
 \end{equation}
 
 avec :
 
-$$ F(Y, t) = 
+$$ F(t, Y(t)) = 
 \begin{pmatrix}
-- {1 \over RC} v - {2 \over RC} u\\
-- {1 \over RC} v - {1 \over RC} u
+- {1 \over RC} v(t) - {2 \over RC} u(t)\\
+- {1 \over RC} v(t) - {1 \over RC} u(t)
 \end{pmatrix}
 $$
 
 _On rappelle que d'un point de vue vectoriel:_
 
-* `u = Y[0]` et `v = Y[1]`_.
-* `F` prend comme argument un vecteur `Y` et renvoie un vecteur de taille 2.
+* `u = Y[0]` et `v = Y[1]`.
+* `F` prend comme argument un vecteur `Y` (de taille 2) et renvoie un vecteur de taille 2.
 * On n'a techniquement pas besoin du temps puisque `F` ne dépend pas explicitement du temps mais on prendra l'habitude de le mettre comme argument même si on ne l'utilise pas (pour des fonctions comme `odeint`).
 
 ## Schéma d'Euler
-Le principe du schéma d'Euler est alors identique au cas d'ordre 1 avec une seule fonction.
+Le principe du schéma d'Euler est alors identique au cas d'ordre 1 avec une seule fonction:
 
 $$
-\frac{\rm{d}Y}{\rm{dt}} \approx \frac{Y(t + h) - Y(t)}{h}
+Y_{k+1} \approx Y_k + F(t_k, Y_k) \times h
 $$
-
-donc:
-$$
-Y(t+h) \approx Y(t) + \frac{\rm{d}Y}{\rm{dt}}(t) = Y(t) + F(Y,t)
-$$
+avec $Y_{k} = Y(t_k)$ et $h = t_{k+1} - t_k$
 
 ```{sidebar} Tableau numpy
 A la fin de la boucle, il est toujours conseillé de transformer la liste de vecteurs en un vecteur de vecteur, c'est-à-dire un tableau numpy qui sera plus facilement manipulable.
