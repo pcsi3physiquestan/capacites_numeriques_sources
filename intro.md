@@ -16,7 +16,7 @@ kernelspec:
 # Introduction
 Le but de cet activité est de se familiariser avec les tracés graphiques et la manipulation des listes classiques et des vecteurs. On se basera sur ce qui a été fait en optique.
 
-Si vous n'êtes pas au point sur Python, revoir [l'introductino des bases](https://stanislas.edunao.com/mod/url/view.php?id=12821) et notamment la partie sur [les bibliothèques scientifiques](https://pcsi3physiquestan.github.io/intro_python/notebook/np_vecteurs.html).
+Si vous n'êtes pas au point sur Python, revoir [l'introduction des bases](https://stanislas.edunao.com/mod/url/view.php?id=12821) et notamment la partie sur [les bibliothèques scientifiques](https://pcsi3physiquestan.github.io/intro_python/notebook/np_vecteurs.html).
 
 ## Position du problème
 On considère un microscope constitué :
