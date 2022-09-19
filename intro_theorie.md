@@ -45,7 +45,7 @@ Montrer que:
 \begin{equation}
 \begin{cases}
 x_{B1} &= x_L + \frac{f' \times (x_B - x_L)}{f' + x_B - x_L}\\
-d_{B1} &= d_{B} \times \frac{x_B - x_L}{x_{B1} - x_L}
+d_{B1} &= d_{B} \times \frac{x_{B1} - x_L}{x_{B} - x_L}
 \end{cases}
 \end{equation}
 ````
