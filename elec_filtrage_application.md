@@ -8,10 +8,11 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 
@@ -71,17 +72,16 @@ def eval_fft(s, fe):
     freqs = np.arange(int(N / 2)) * fe / N  # Liste de fréquence
     sk = fft(s) / N  # Calcul de la TF
     return freqs, np.abs(sk)[:int(N/2)] * 2, np.angle(sk)[:int(N/2)]
-
 ```
 
 ## Filtre choisi
 
 > Recopier dans la cellule ci-dessous la fonction `butterworth` précédemment créée ainsi que les valeur `nmin` et `fc` choisie pour le dimensionnement (remarque : vous pouvez même créer une fonction `butterworth(f)` et mettre nmin et fc comme variable locale car elles ne changeront plus.)
 
-```{code-cell}
-:tags: [remove-output,hide-input]
-# Les bibliothèques scientifiques ont déjà été importées. PENSEZ A EXECUTER LA CELLULE PRECEDENTE.
+```{code-cell} ipython3
+:tags: [remove-output, hide-input]
 
+# Les bibliothèques scientifiques ont déjà été importées. PENSEZ A EXECUTER LA CELLULE PRECEDENTE.
 ```
 
 ## Application à des signaux simples.
@@ -109,7 +109,7 @@ Le signal considéré est téléchargeable par [ce lien](https://github.com/pcsi
 La cellule ci-dessous importe le signal sonore bruité et obtient le spectres (fréquence, amplitude et phase à l'origine) pour les deux signaux gauche et droite. Rien n'est à modifier mais __pensez à exécuter la cellule et à noter les variables à réutiliser pour la suite.__
 
 ```{code-cell} ipython3
-:tags: [remove-output,hide-input]
+:tags: [remove-output, hide-input]
 
 filename = 'sources/signal_bruitee.wav'  # Entrer ici le chemin relatif vers le fichier sonore téléchargé
 samplerate, datas = read(filename)
@@ -125,7 +125,6 @@ npt = len(gauche)  # Nombre de points du signal
 
 freqs_g, amps_g, phis_g = eval_fft(gauche, samplerate)  # On utilise la fonction donnée
 freqs_d, amps_d, phis_d = eval_fft(gauche, samplerate)  # On utilise la fonction donnée
-
 ```
 
 ### Réalisation du filtrage
@@ -134,9 +133,9 @@ freqs_d, amps_d, phis_d = eval_fft(gauche, samplerate)  # On utilise la fonction
 > 2. Appliquer la fonction `reponse` avec le filtre de Butterworth dimensionnée précédemment aux signaux gauche et droite de l'extrait sonore bruité.
 > 3. Tracer le spectre des deux signaux gauche et droite __traités__ par le filtre. Vérifier que le filtre abien jouer son rôle.
 
-
 ```{code-cell} ipython3
-:tags: [remove-output,hide-input]
+:tags: [remove-output, hide-input]
+
 
 ```
 
@@ -147,8 +146,9 @@ __Attention, il y a plus de 10000 fréquences pour reconstruire le signal. Cela 
 
 _Respecter les noms es variables pour les deux signaux temporels car ils vont servir à la création du signal sonore final._
 
-```{code-cell}
-:tags: [remove-output,hide-input]
+```{code-cell} ipython3
+:tags: [remove-output, hide-input]
+
 
 ```
 
@@ -158,7 +158,8 @@ Si tout à été fait correctement, la cellule ci-dessous peut-être exécutée 
 Vous pourrez le comparer à l'[extrait original](https://github.com/pcsi3physiquestan/donnees_exp/blob/main/signal_court.wav?raw=true) (le bruit ayant été ajouté artificiel pour ce TD).
 
 ```{code-cell} ipython3
-:tags: [remove-output,hide-input]
+:tags: [remove-output, hide-input]
+
 # On doit normaliser le signal pour que les valeurs soit comprises entre -1 et 1
 # En pratique, on place les valeurs entre -0.5 et 0.5 pour éviter tout risque de saturation
 reponse2 = []
@@ -179,4 +180,3 @@ Cette méthode est néanmoins problématique car elle demande beaucoup de ressou
 En pratique, le traitement d'un signal numérique se fait par des filtres __numériques__ qui s'appliquent directement sur le signal temporel échantillonné ($s_k$). Certains de ces filtres seront vus en deuxième année suivant les options. La bibliothèques `scipy` propose notamment plusieurs fonctions natives et optimisées pour le traitement des signaux numériques (sous bibliothèques `scipy.signal`).
 
 On ne présente pas ici ces méthodes qui ne sont pas au programme mais sachez qu'on peut notamment utiliser un filtre de Butterworth ou son équivalent numérique grâce à cette bibliothèque.
-

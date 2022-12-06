@@ -17,12 +17,7 @@ La page ci-présente existe en version notebook téléchargeable grâce au bouto
 
 ## Fonctions utiles
 
-> 1. La fonction que vous avez définie dans l'autre notebook n'est pas défini ici. Copiez-collez votre fonction pour l'utiliser ici.
-> 2. De même, les fonctions que vous avez créés dans la partie sur [l'intégration et la dérivation numérique](deriv_int_fn) vont être utiles ici. Recopiez les aussi pour pouvoir les utiliser.
-
-```{code-cell} ipython3
-"""Ne pas oublier d'importer les bibliothèques scientifiques"""
-```
+Pour l'intégration des équations différentielles, on utilisera directement `solve_ivp`.
 
 ## Rampe de tension
 

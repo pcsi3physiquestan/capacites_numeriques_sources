@@ -24,41 +24,13 @@ $$
 avec $\omega_0 = \sqrt{\frac{g}{l}}$ ($l=1\rm{m}$ est la longueur du fil du pendule et $g=9.81 \rm{m.s^{-2}}$ l'intensité du champ de pesanteur).
 
 > __Exercice 1:__  
-> 1. Si l'on pose le vecteur $Y(t) = (\theta(t), \dot \theta(t))$, écrire la fonction `F` associée au schéma d'Euler puis utiliser la fonction `euler` (la réécrire dans la cellule suivante pour pouvoir l'utiliser) pour obtenir $\theta(t)$ si $\theta(0) = \pi /4$ et $\dot \theta(0) = 0$
+> 1. Si l'on pose le vecteur $Y(t) = (\theta(t), \dot \theta(t))$, écrire la fonction `F` associée au schéma d'Euler puis utiliser la fonction `solve_ivp` (la réécrire dans la cellule suivante pour pouvoir l'utiliser) pour obtenir $\theta(t)$ si $\theta(0) = \pi /4$ et $\dot \theta(0) = 0$
+> 2. Tracer sur deux graphiques différents l'évolution de $\theta(t)$ et de sa dérivée. Observe-t-on le comportement d'un oscillateur harmonique ?
 
 ```{code-cell}
 :tags: [remove-output,hide-input]
 
 ```
-
-Nous allons apprendre à utiliser directement la fonction native `odeint` de la bibliothèque `scipy.integrate`. Sa signature est la suivante:
-
-```{margin}
-Par défaut, odeint utiliser une fonction `F(Y,t)` et non `F(t,Y)`. D'où l'argument `tfirst=True` pour lui forcer la main. Cette ordre est préférable car il reste vrai pour d'autres fonctions.
-```
-````{code-block}ipython3
-from scipy.integrate import odeint # Ne pas oublier d'importer la fonction
-odeint(f, y0, t, tfirst=True)
-````
-
-```{margin}
-`odeint` fonctionne aussi à l'ordre 1. `y0` est alors un nombre et non un vecteur.
-```
-où `f` est la fonction du schéma d'Euler, `y0` le vecteur contenant les conditions intiales et `t` un vecteur contenant déjà __tous__ les instants $t_k$ où on veut évaluer $y$.
-```{margin}
-On est donc proche de ce que vous avez codé.
-```
-Il renvoie __un tableau numpy__ contenant dans chaque colonne les valeurs des solutions aux instants $t_k$.
-
-> __Exercice 2:__  
-> 1. Après l'avoir importée, utiliser la fonction odeint pour obtenir $\theta(t)$ si $\theta(0) = \pi /4$ et $\dot \theta(0) = 0$
-
-```{code-cell}
-:tags: [remove-output,hide-input]
-
-```
-__Par la suite, on essaiera d'utiliser la fonction `odeint` quand c'est nécessaire.__
-
 
 ## Petites et grandes oscillations
 ### Différences
@@ -74,7 +46,7 @@ soit un oscillateur harmonique dont la solution analytique est:
 avec $\theta_i = \theta(0)$ et $\omega_i = \dot \theta (0)$.
 
 > __Exercice 3:__  
-> 1. On considère le cas où on lâche le pendule de $\theta_i = 0$ avec une vitesse initiale $\omega_i$. Déterminer grâce à `odeint` __sans approximation__ l'évolution de $\theta(t)$ pour cinq vitesses de départ différentes répartis entre 0 et $\sqrt{\frac{2g}{l}}$ et comparer graphiquement les solutions obtenues à la solutions théoriques aux petites angles. Cette approximation est-elle valable jusqu'à $\sqrt{\frac{2g}{l}}$ ?
+> 1. On considère le cas où on lâche le pendule de $\theta_i = 0$ avec une vitesse initiale $\omega_i$. Déterminer grâce à `solve_ivp` __sans approximation__ l'évolution de $\theta(t)$ pour cinq vitesses de départ différentes répartis entre 0 et $\sqrt{\frac{2g}{l}}$ et comparer graphiquement les solutions obtenues à la solutions théoriques aux petites angles. Cette approximation est-elle valable jusqu'à $\sqrt{\frac{2g}{l}}$ ?
 
 ```{code-cell}
 :tags: [remove-output,hide-input]

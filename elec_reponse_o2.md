@@ -73,7 +73,7 @@ _On rappelle que d'un point de vue vectoriel:_
 
 * `u = Y[0]` et `v = Y[1]`.
 * `F` prend comme argument un vecteur `Y` (de taille 2) et renvoie un vecteur de taille 2.
-* On n'a techniquement pas besoin du temps puisque `F` ne dépend pas explicitement du temps mais on prendra l'habitude de le mettre comme argument même si on ne l'utilise pas (pour des fonctions comme `odeint`).
+* On n'a techniquement pas besoin du temps puisque `F` ne dépend pas explicitement du temps mais on prendra l'habitude de le mettre comme argument même si on ne l'utilise pas (pour des fonctions comme `solve_ivp`).
 
 ## Schéma d'Euler
 Le principe du schéma d'Euler est alors identique au cas d'ordre 1 avec une seule fonction:

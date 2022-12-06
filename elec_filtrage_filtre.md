@@ -8,10 +8,11 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 
@@ -60,9 +61,9 @@ _Indications utiles :_
     * (Esthétique) Utiliser la fonction `ax.grid(which='both', axis='both')` pour afficher une grille semblable à celles vu sur les diagrammes de Bode.
 
 ```{code-cell} ipython3
-:tags: [remove-output,hide-input]
-# Ne pas oublier d'importerles modules scientifiques.
+:tags: [remove-output, hide-input]
 
+# Ne pas oublier d'importerles modules scientifiques.
 ```
 
 ## Choix de $f_c$
@@ -73,9 +74,9 @@ _Pour toute la suite, on travaillera avec un filtre d'ordre $n_{min}$._
 > 2. Tracer le diagramme de Bode en gain du filtre pour $f_c$ trouvée précédemment et vérifier visuellement son ordre et que les gains en $f_1$ et $f_2$ suivent le cahier des charges.
 
 ```{code-cell} ipython3
-:tags: [remove-output,hide-input]
-# Vous pouvez utiliser (en la recopiant) la fonction `dicho` que vous avez créés dans les TP précédents.
+:tags: [remove-output, hide-input]
 
+# Vous pouvez utiliser (en la recopiant) la fonction `dicho` que vous avez créés dans les TP précédents.
 ```
 
 Maintenant que le filtre est dimensionné, vous pouvez passer à son [utilisation](elec_filtrage_application)

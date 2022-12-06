@@ -9,10 +9,11 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.10.3
 kernelspec:
-  display_name: Python 3
+  display_name: Python 3 (ipykernel)
   language: python
   name: python3
 ---
+
 # Introduction
 Le but de cet activité est de se familiariser avec les tracés graphiques et la manipulation des listes classiques et des vecteurs. On se basera sur ce qui a été fait en optique.
 
@@ -27,4 +28,3 @@ On considère un microscope constitué :
 Le but de l'exercice est de trouver par simulation numérique où placer un objet (de taille 1(unité arbitraire)) pour que l'image finale soit à l'infini.
 
 __On place l'origine de l'axe optique à l'emplacement de l'objectif et on suppose que le systèmes vérifient les conditions de Gauss.__
-

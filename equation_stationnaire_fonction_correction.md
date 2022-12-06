@@ -14,6 +14,65 @@ kernelspec:
   name: python3
 ---
 
+## Préambule : Fonction
+
+Avant de traiter le problème, on va donner deux possibilités pour résoudre une équation stationnaire :
+* écrire une fonction `dicho(f,a,b,prec)` comme demandé précédemment utilisant la dichotomie. _On fera un test à la fois sur la largeur de l'intervalle et sur la valeur maximale de $f$ sur l'intervalle._
+* utiliser une fonction native de `scipy.optimize` : `bisect`
+
+```{code-cell} ipython3
+# Bibliothèques scientifiques
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.optimize import bisect
+
+
+#  ---- Fonction implémentant la dichotomie -------------
+# Note sur la signature de la fonction:
+# callable = fonction
+# list[float] = liste (classique) de flottants
+# Les annotations qui donnent la signature de la fonction sont purement indicatives, Python ne les vérifie pas.
+def dicho(f: callable, a: float, b: float, prec: float) -> list[float]:
+    """
+    Version demandée :
+    Renvoie la racine de f située entre a et b avec une précision prec
+    """
+    # On vérifie qu'il y a bien au moins une racine (cf. deuxième semestre)
+    assert f(a) * f(b) <= 0
+    
+    # Cas exotique : Cas où la racine est sur les bords
+    if f(a) == 0:
+        return [a, f(a)]
+    elif f(b) == 0:
+        return [b, f(b)]
+    
+    # Méthode de dichotomie
+    bg, bd = a, b # (Facultatif) On évite de modifier les arguments. On modifiera bg et bd
+    while ((bd-bg) > prec) and (max(f(bd), f(bg)) > prec):
+        c = (bg + bd) / 2
+        if f(c) == 0: # Racine au milieu
+            return [c, f(c)]
+        elif f(bg) * f(c) < 0: # Changement de signe à gauche
+            bd = c
+        else: # Changement de signe à droite
+            bg = c
+    c = (bg + bd) / 2
+    return [c, f(c)]
+    
+
+# ---- Fonction native --------
+help(bisect)
+# Remarque : pas de besoin de donner une précision, celle par défaut suffit : bisect(f,a,b)
+
+#Sur un exemple
+def f(x):
+    return np.exp(x)-2*x- 1
+
+print(dicho(f, 1, 3, 1e-12))
+c = bisect(f, 1, 3)
+print(c, f(c))
+```
+
 ---
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
@@ -60,7 +119,25 @@ f_test(u)
 ```{code-cell} ipython3
 :tags: [remove-output, hide-input]
 
+E0 = 2
+f = 50
+def Esource(t):  # Tension en fonction du temps
+    return E0 * np.cos(2 * np.pi * f * t)
 
+def f_test(u):  # Fonction de test
+    R = 100
+    Is = 95e-6
+    VT = 30e-3
+    i = (E - u) / R - Is * (np.exp(u / VT) - 1)
+    return i
+
+E = 2
+u = np.arange(-5, 0.3, 0.01)
+
+fg, ax = plt.subplots()
+ax.plot(u, f_test(u))
+ax.grid()
+plt.show()
 ```
 
 > __Exercice 2:__  
@@ -75,7 +152,11 @@ f_test(u)
 ```{code-cell} ipython3
 :tags: [remove-output, hide-input]
 
-
+# Cf. début pour la définition de dicho. On va utiliser dicho ET bisect.
+E = 2
+print(dicho(f_test, -5, 5, 1e-12))
+c = bisect(f_test, -5, 5)
+print(c, f_test(c))
 ```
 
 ## Application au redressement monoalternance
@@ -91,5 +172,31 @@ f_test(u)
 ```{code-cell} ipython3
 :tags: [remove-output, hide-input]
 
+tk = np.linspace(0, 2 / f, 1000)
+Ek = Esource(tk)
+ud = []
+for E in Ek:
+    ud.append(bisect(f_test, -5, 5))
+
+
+fg, ax  = plt.subplots()
+ax.set_xlabel("t(s)")
+ax.set_ylabel("Tensions(V)")
+ax.plot(tk, Ek, label="E(t)")
+ax.plot(tk, ud, label="uD(t)")
+
+# On va aussi tracer uR qui correspond au vrai redressement monoalternance
+# On a uR = E - u
+
+ud = np.array(ud) #Transformation en vecteur
+ur = Ek - ud
+ax.plot(tk, ur, label="uR(t)")
+
+ax.grid()
+ax.legend()
+plt.show()
+```
+
+```{code-cell} ipython3
 
 ```
