@@ -55,7 +55,7 @@ avec $\theta_i = \theta(0)$ et $\omega_i = \dot \theta (0)$.
 
 ### Anisochronisme
 On se propose de déterminer la période des oscillations en fonction de l'amplitude des oscillations.  
-__Méthode choisie__ : On va déterminer les temps $t_{0i}$ successifs des points où la solution numérique pour $\theta(t)$ s'annule (plus précisément les temps médians entre deux instants où le signal change de signe). Comme il n'y a que 2 annulations des angles dans une période (cf. étude des systèmes conservatifs), il suffira de compter le nombre $N_0$ de 0. La période $T$ du signal s'écrit alors :
+__Méthode choisie__: On va déterminer les temps $t_{0i}$ successifs des points où la solution numérique pour $\theta(t)$ s'annule (plus précisément les temps médians entre deux instants où le signal change de signe). Comme il n'y a que 2 annulations des angles dans une période (cf. étude des systèmes conservatifs), il suffira de compter le nombre $N_0$ de 0. La période $T$ du signal s'écrit alors :
 
 $$
 T = {t_{0N_0} - t_{01} \over {N_0 - 1 \over 2}}
