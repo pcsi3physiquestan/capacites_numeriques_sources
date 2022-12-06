@@ -14,7 +14,6 @@ kernelspec:
 La page ci-présente existe en version notebook téléchargeable grâce au bouton ![Bouton](./images/bouton_tl.png) (choisir le format `.ipynb`). On rappelle qu'l faut ensuite l'enregistrer dans un répertoire adéquat sur votre ordinateur (`capa_num` par exemple dans votre répertoire personnel) puis lancer Jupyter Notebook depuis Anaconda pour accéder au notebook, le modifier et exécutez les cellules de code adéquates.
 
 # Utilisation de la bibliothèque scipy
-__Si vous vous sentez suffisamment à l'aise,__ vous pouvez passer directement à l'[étude approfondie](elec_reponse_o1_complet).
 
 ## Définition des fonctions pour le schéma d'Euler
 On va commencer par définir la fonction $f(t,y)$ pour les deux types d'étude : le régime libre et l'échelon de tension.
