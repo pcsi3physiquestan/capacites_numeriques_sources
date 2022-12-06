@@ -13,7 +13,6 @@ chapters:
 #   - file: signal_fourier_complet.md
 - file: equation_stationnaire.md
   sections:
-  - file: equation_stationnaire_fonction.md
   - file: equation_stationnaire_base.md
   - file: equation_stationnaire_fonction.md
 - file: derivation_integration.md
@@ -22,6 +21,7 @@ chapters:
   - file: derive_integ_fonction.md
 - file: elec_reponse_o1.md
   sections:
+  - file: elec_reponse_o1_fonction.md
   - file: elec_reponse_o1_base.md
   - file: elec_reponse_o1_complet.md
   - file: elec_reponse_o1_rampe.md
