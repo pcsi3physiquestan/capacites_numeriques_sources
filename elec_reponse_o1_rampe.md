@@ -43,7 +43,7 @@ _Rappels :_
 > 1. Procéder à l'intégration de l'équation différentielle pour $n=2$ en choisissant un pas de calcul adapté.
 > 2. En déduire l'intensité circulant dans le condensateur, l'énergie stockée dans le condensateur (aux mêmes instants $t_k$), l'énergie dissipée par la résistance et l'énergie fournie par la source (entre t=0  et $t=t_k$).
 > 3. Représenter quatre graphiques dans une même fenêtre (2 lignes, 2 colonnes) représentant :
->     * premier graphique : les tensions $E(t)$ et $u(t)$
+>     * premier graphique : les tensions $rampe(t)$ et $u(t)$
 >     * deuxième graphique : l'intensité $i(t)$
 >     * troisième graphique ; le portrait de phase (ensemble des points de coordonnées ($u(t); \frac{du}{dt}(t)$))
 >     * quatrième graphique ; l'évolution de l'énergie stockée dans le condensateur, celle délivrée par la source et celle dissipée par la résistance
