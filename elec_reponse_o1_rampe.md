@@ -21,10 +21,10 @@ Pour l'intégration des équations différentielles, on utilisera directement `s
 
 ## Rampe de tension
 
-On étudie un circuit RC série soumis à une tension $E(t)$ :
+On étudie un circuit RC série soumis à une tension $rampe(t)$ :
 
 $$
-E(t) = 
+rampe(t) = 
 \begin{cases}
 0 & \textrm{si t <= 0}\\
 t / T0 & \textrm{si 0 < t <= T0}\\
@@ -39,7 +39,7 @@ _Rappels :_
 * La __puissance__ dissipée par effet Joule est $P_J(t) = R i^2(t)$
 
 > __Exercice 6__
-> 1. Ecrire une fonction `rampe(t)` qui renvoie la valeur de `E(t)` pour un instant donné puis l'utiliser pour créer la fonction `f_rampe` du schéma d'Euler.
+> 1. Ecrire une fonction `rampe(t)` qui renvoie la valeur de $rampe(t)$ pour un instant donné puis l'utiliser pour créer la fonction `f_rampe(t,u)` du schéma d'Euler.
 > 1. Procéder à l'intégration de l'équation différentielle pour $n=2$ en choisissant un pas de calcul adapté.
 > 2. En déduire l'intensité circulant dans le condensateur, l'énergie stockée dans le condensateur (aux mêmes instants $t_k$), l'énergie dissipée par la résistance et l'énergie fournie par la source (entre t=0  et $t=t_k$).
 > 3. Représenter quatre graphiques dans une même fenêtre (2 lignes, 2 colonnes) représentant :
