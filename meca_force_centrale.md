@@ -145,9 +145,11 @@ On va étudier la relation entre le paramètre d'impact et l'angle de diffusion 
 ![Angle de diffusion](images/diffusion2.png)
 
 On veut tester la relation théorique :
+
 $$
-b = {\beta \over \tan({D \over 2}}
+b = {\beta \over \tan({D \over 2})}
 $$
+
 avec $\beta = {1 \over 2E_{c0}}{2Ze^2 \over 4\pi \epsilon_0}$
 
 > __Exercice 3 :__
