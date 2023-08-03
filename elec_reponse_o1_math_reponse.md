@@ -22,7 +22,7 @@ from numpy import *
 from matplotlib.pyplot import *
 from scipy.integrate import odeint
 
-def euler(f:callable, y0:float, t0: float, tf: float, pas:float) -> (numpy.ndarray, numpy.ndarray):
+def euler(f:callable, y0:float, t0: float, tf: float, pas:float) -> (ndarray, ndarray):
     tk = [t0]
     yk = [y0]
     while tk[-1] < tf:
