@@ -98,7 +98,8 @@ glue("deriv_c", f, display="False")
 ```
 
 
-````{tabbed} Dérivée à droite
+`````{tab-set}
+````{tab-item} Dérivée à droite
 
 $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0)}{h}$$
 ```{glue:figure} deriv_d
@@ -106,7 +107,7 @@ $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0)}{h}$$
 ```
 ````
 
-````{tabbed} Dérivée à gauche
+````{tab-item} Dérivée à gauche
 
 $$ f'(x_0) \approx \frac{f(x_0) - f(x_0 - h)}{h}$$
 ```{glue:figure} deriv_g
@@ -114,7 +115,7 @@ $$ f'(x_0) \approx \frac{f(x_0) - f(x_0 - h)}{h}$$
 ```
 ````
 
-````{tabbed} Dérivée centrée
+````{tab-item} Dérivée centrée
 
 $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - h)}{2h}$$
 ```{glue:figure} deriv_c
@@ -122,9 +123,10 @@ $$ f'(x_0) \approx \frac{f(x_0 + h) - f(x_0 - h)}{2h}$$
 _Note : La dérivée centrée est en général plus précise._
 ```
 ````
+`````
 
 ### Cas étudiés et pas de calcul
-En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une estimation du nombre dérivée pour plus valeur $x_i \in [a,b]$ avec un pas $h$. On distingue deux cas:
+En général, on estime la fonction dérivée sur un intervale $[a,b]$, soit une estimation du nombre dérivée pour plusieurs valeurs $x_i \in [a,b]$ avec un pas $h$. On distingue deux cas:
 * La fonction $f$ est connue analytiquement mais on ne veut/peut pas faire le calcul analytique de la dérivée. On peut alors choisir les $x_i$ et choisir le pas de dérivation comme on veut.
 ```{margin} Cas des valeurs discrètes
 C'est le cas en général lorsque les $y_k$ sont issus d'une mesure expérimentale par exemple.
@@ -165,8 +167,14 @@ $$
 ### Type d'intégration
 On distingue quatre types d'intégration:
 
-````{tabbed} Méthode des rectangles à droite
-On commence à $a$ et on s'arrête à $b - h$.
+
+`````{tab-set}
+````{tab-item} Méthode des rectangles à droite
+On commence à $a$ et on s'arrête à $b - h$. L'aire d'un rectangle est:
+
+$$
+\mathcal{A_i} = f(x_{i}) \times h
+$$
 
 ```{figure} ./images/rectangle_gauche.png
 :name: rectangle_droite
@@ -174,8 +182,12 @@ On commence à $a$ et on s'arrête à $b - h$.
 ```
 ````
 
-````{tabbed} Méthode des rectangles à gauche
-On commence à $a + h$ et on s'arrête à $b$.
+````{tab-item} Méthode des rectangles à gauche
+On commence à $a + h$ et on s'arrête à $b$. L'aire d'un rectangle est:
+
+$$
+\mathcal{A_i} = f(x_{i} + h) \times h
+$$
 
 ```{figure} ./images/rectangle_droite.png
 :name: rectangle_gauche
@@ -183,8 +195,14 @@ On commence à $a + h$ et on s'arrête à $b$.
 ```
 ````
 
-````{tabbed} Méthode des rectangles centrés
-On commence à $a + h / 2$ et on s'arrête à $b - h / 2$.
+````{tab-item} Méthode des rectangles centrés
+On commence à $a + h / 2$ et on s'arrête à $b - h / 2$. L'aire d'un rectangle est:
+
+$$
+\mathcal{A_i} = f(x_{i} + h /2) \times h
+$$
+
+_On peut aussi sauter une valeur sur deux comme sur la [figure](rectangle_centre)._
 
 ```{figure} ./images/rectangle_milieu.png
 :name: rectangle_centre
@@ -192,11 +210,11 @@ On commence à $a + h / 2$ et on s'arrête à $b - h / 2$.
 ```
 ````
 
-````{tabbed} Méthode des trapèzes
+````{tab-item} Méthode des trapèzes
 L'aire d'un trapèze est:
 
 $$
-\mathcal{A} = \frac{f(a + h) + f(a)}{2}h
+\mathcal{A} = \frac{f(x_{i} + h) + f(x_i)}{2}h
 $$
 
 ```{figure} ./images/trapeze.png
@@ -204,6 +222,7 @@ $$
 :align: center
 ```
 ````
+`````
 
 ### Cas étudiés et pas de calcul
 Comme pour la dérivation, on distingue deux cas:

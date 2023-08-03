@@ -66,6 +66,9 @@ y(t_{k+1}) &= y(t_0) + \int_{t_0}^{t_{k+1}} f(t, y(t)) \rm{d}t
 \end{cases}
 $$
 
+```{margin}
+La méthode des rectangles à droite peut aussi être utilisées mais comme elle utilise $y_{k+1}$ - alors inconnue, on dit qu'elle est _implicite_.
+```
 Il vient la relation de récurrence:
 
 $$
@@ -113,15 +116,15 @@ $$
 \frac{\rm{d}y}{\rm{dt}}(t) = f(t,y)
 $$
 
-* créer un vecteur temps contenant les instants $t_k = t_0 + k \times h$
-* calculer un vecteur contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
+* créer une liste temps contenant les instants $t_k = t_0 + k \times h$
+* calculer une liste contenant les éléments de la suite $y_k = y(t_k)$ définie par la récurrence:
 
 $$
 y_{k+1} = y_k + f(t_k, y_k) * h
 $$
 avec $y_0 = y(t_0)$ la condition initiale.
 
-## Application en électrocinétique.
+<!-- ## Application en électrocinétique.
 On traite le cas général d'un système d'ordre 1 stable de constante de temps $\tau$. On va notamment étudier la réponse à plusieurs entrées :
 * un régime libre et un échelon de tension. On comparera avec la réponse attendue pour tester l'intégration numérique.
 * une rampe de tension suivie d'une tension constante.
@@ -134,4 +137,4 @@ On étudiera l'influence du pas d'intégration sur la fiabilité de l'intégrati
 > On travaille avec un circuit $RC$ série dont la constante de temps est $\tau = RC$. On prendra $R = 10\rm{k\Omega}$ et $C = 100 \rm{\mu F}$.  
 > 1. Dans le cas d'un régime libre, préciser l'expression de la fonction $f(t,y)$. Dépend-elle explicitement de $t$?
 > 2. Dans le cas où le RC est relié à une source $E = 1V$, préciser l'expression de la fonction $f(t,y)$. Dépend-elle explicitement de $t$?
-> 3. On veut étudier le régime transitoire, on va donc intégrer de 0 à $t_f$. Comment choisir le temps final $t_f$ pour observer complètement le régime transitoire ? En déduire le nombre de temps $t_k$ de calcul pour un pas $h$ choisi en fonction de $\tau$ et $h$.
+> 3. On veut étudier le régime transitoire, on va donc intégrer de 0 à $t_f$. Comment choisir le temps final $t_f$ pour observer complètement le régime transitoire ? En déduire le nombre de temps $t_k$ de calcul pour un pas $h$ choisi en fonction de $\tau$ et $h$. -->

@@ -14,55 +14,56 @@ La page ci-présente existe en version notebook téléchargeable grâce au bouto
 
 # Implémentation basique
 
-## Mise en pratique
-> __Exercice :__  
-> Pour les études numériques, on prend $R=1k\Omega$ et $C= 1nF$.
-```{margin}
-_Si vous avez bien travaillé avec des vecteurs, la fonction `euler` utilisée à l'ordre 1 devrez ne pas nécessiter beaucoup de changements._
+## Schéma d'euler - Système d'équations
+On va chercher à résoudre le système suivant:
+
+$$
+\begin{cases}
+\frac{\rm{d}u}{\rm{dt}} = - \frac{1}{\tau} v - \frac{2}{\tau}u\\
+\frac{\rm{d}v}{\rm{dt}} = - \frac{1}{\tau} v - \frac{1}{\tau}u
+\end{cases}
+$$
+avec $v(t=0) = 2$, $u(t=0) = 0$,  $\tau = 1$
+
+> __Exercice 1 :__  
+> 1. Copier-coller la fonction `euler` que vous avez écrite pour la séance précédente. Si le corps de la fonction ne change pas, sa signature change:
+```{code-block}
+euler(f:callable, y0: numpy.ndarray, t0: float, tf: float, pas: float) -> (numpy.ndarray, numpy.ndarray)
 ```
-> 1. Ecrire une fonction `F(t, Y)` qui prend comme argument le vecteur `Y` et l'instant `t` et qui renvoie un __vecteur__ numpy de taille 2 correspondant au vecteur donné précédemment.
-> 2. Ecrire une fonction `euler(F, Y0, tf, pas)` qui prend comme argument la fonction `F`, un vecteur `Y0` donnant les conditions initiales $u(0), v(0)$, et qui réalise l'intégration d'Euler par `pas` d'intégration de $t=0$ à `tf`. Elle renverra un tableaux numpy à deux colonnes contenant pour chaque lignes les valeurs de Y aux temps $t_k$ et un vecteur numpy contenant les temps $t_k$. __S'inspirer de ce qui a été fait à l'ordre 1.__
-> 4. Obtenir puis tracer l'évolution temporelle de $u(t)$ et $v(t)$ par intégration numérique et anlyser le tracé. On adaptera le pas d'intégration à bon escient. On prend $u(0) = 0; v(0) = v_0 = 1V$.
+> 2. Ecrire une fonction `F(t:float, Y:numpy.ndarray) -> numpy.ndarray` qui renvoie la fonction $F$ du schéma d'Euler précédent. __Attention, cette fois, `Y` est un vecteur (dont les composantes sont $u_k$ et $v_k$) et $F$ renvoie un vecteur (dont les composantes sont $\frac{\rm{d}u}{\rm{dt}}(t_k)$ et $\frac{\rm{d}v}{\rm{dt}}(t_k)$ obtenus à partir du système d'équations). Veillez à renvoyer un vecteur et non une liste (pourquoi ?).__
+> 3. Utiliser la fonction `euler` pour obtenir $Y(t)$ puis tracer $u(t)$ et $v(t)$ entre $t=0$ et $t=10$. A vous de choisir le pas d'intégration sachant que $\tau$ est à peu près le "temps caractéristique" du système.
+> 4. Obtenir la solution grâce aux fonction `odeint` ou `solve_ivp` puis les tracer pour vérifier que vous obtenez le même tracé.
 
 ```{code-cell}
 :tags: [remove-output,hide-input]
+"""Ne pas oubliez d'importer les bibliothèques scientifiques."""
 
 ```
+## Schéma d'Euler - Ordre 2
+On veut résoudre l'équation différentielle suivante:
 
-
-## Vers l'ordre 2.
-Remarquons que le problème précédent peut aussi s'appliquer à une équation linéaire d'ordre 2. Reprenons le système précédent et en éliminant $v(t)$, on obtient l'équation:
-
+```{margin}
+On pourra vérifier théoriquement qu'en éliminant $v(t)$ du système précédent, on obtient cette équation.
+```
 $$
-\frac{\rm{d^2}u}{\rm{dt^2}} = - \frac{3}{RC}\frac{\rm{d}u}{\rm{dt}} - \frac{1}{RC}u
+\frac{\rm{d^2}u}{\rm{dt^2}} = - \frac{3}{\tau}\frac{\rm{d}u}{\rm{dt}} - \frac{1}{\tau}u
 $$
 
-Soit en posant $w = \dot u = \frac{\rm{d}u}{\rm{dt}}$:
-
->
-$$ {\rm{d} \over \rm{d}t}
-\begin{pmatrix}
-u\\
-w
-\end{pmatrix}
-=
-\begin{pmatrix}
-w\\
-- \frac{3}{RC}w - \frac{1}{RC}u
-\end{pmatrix}
-$$
-avec $u(0) = u(0)$ et $w(0) = - \frac{v(0)}{RC}$
-On retrouve donc la même vision vectorielle en posant:
+On va donc travailler avec le vecteur :
 
 $$ Y(t)=
 \begin{pmatrix}
 u(t)\\
-v(t)
+\frac{\rm{d}u}{\rm{dt}}(t)
 \end{pmatrix}
 $$
 
-> __Exercice :__  
-> 1. Reprendre la fonction `euler` avec une fonction `G` qui correspondant à la dérivée du vecteur $Y = (u,\dot u)$ et retrouver ainsi l'expression de $u(t)$ (ainsi que $\dot u(t)$).
+
+> __Exercice 2 :__  
+> 1. La fonction `euler` a-t-elle besoin d'être modifiée ?
+> 2. Ecrire une fonction `F2(t, Y)` correspondant au schéma d'Euler comme [expliqué précédemment](sys_o2).
+> 3. Obtenir la solution  sur le même intervale de temps que dans l'exercice précédent et vérifier que la solution coïncide avec la solution trouvée avec un système d'équations.
+
 
 ```{code-cell}
 :tags: [remove-output,hide-input]

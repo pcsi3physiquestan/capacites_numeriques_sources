@@ -3,36 +3,19 @@ root: capacite_numerique
 options:
   numbered: True
 chapters:
-- file: intro.md
-  sections:
-  - file: intro_theorie.md
-  - file: intro_code.md
-# - file: signal_fourier.md
-#   sections:
-#   - file: signal_fourier_base.md
-#   - file: signal_fourier_complet.md
 - file: equation_stationnaire.md
   sections:
-  - file: equation_stationnaire_base.md
-  - file: equation_stationnaire_fonction.md
+  - file: equation_stationnaire_math.md
+  - file: equation_stationnaire_reponse.md
 - file: derivation_integration.md
   sections:
-  - file: derivation_base.md
-  - file: derive_integ_fonction.md
+  - file: derivation_math.md
+  - file: integration_math.md
+  - file: derivation_integration_reponse.md
 - file: elec_reponse_o1.md
   sections:
-  - file: elec_reponse_o1_fonction.md
-  - file: elec_reponse_o1_base.md
-  - file: elec_reponse_o1_complet.md
-  - file: elec_reponse_o1_rampe.md
+  - file: elec_reponse_o1_math.md
+  - file: elec_reponse_o1_math_reponse.md
 - file: elec_reponse_o2.md
   sections:
   - file: elec_reponse_o2_base.md
-  - file: elec_reponse_o2_complet.md
-# - file: elec_filtrage.md
-#   sections:
-#   - file: elec_filtrage_filtre.md
-#   - file: elec_filtrage_application.md
-- file: meca_non_lineaire.md
-- file: meca_force_centrale.md
-- file: thermo_statique.md
